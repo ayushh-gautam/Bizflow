@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "503054691567",
+    "project_id": "fir-distribution-bizflow",
+    "storage_bucket": "fir-distribution-bizflow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503054691567:android:8cc5dd3be1c21baf49bf1a",
+        "android_client_info": {
+          "package_name": "com.example.bizflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClPjmZ-yYiuwi1Ra4gGebMX-vHjAg7UD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
