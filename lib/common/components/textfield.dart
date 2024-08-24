@@ -1,5 +1,4 @@
 import 'package:bizflow/config/themes/themeExtension/theme_extension.dart';
-import 'package:bizflow/core/constants/app_color.dart';
 import 'package:bizflow/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
 

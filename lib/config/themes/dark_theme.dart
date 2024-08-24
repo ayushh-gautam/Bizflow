@@ -16,5 +16,5 @@ ThemeData darkMode = ThemeData(
   appBarTheme: const AppBarTheme(
       color: AppDarkColor.bgBackground,
       surfaceTintColor: AppDarkColor.bgBackground),
-  extensions: [AppColors.dark],
+  extensions: const [AppColors.dark],
 );

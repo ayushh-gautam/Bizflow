@@ -87,7 +87,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           ),
           if (showError) // Show error message
             Padding(
-              padding: EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 'Passwords do not match',
                 style: TextStyle(color: customColors.fillError),
@@ -97,7 +97,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           CustomButton(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PasswordChanged()));
+                    MaterialPageRoute(builder: (context) => const PasswordChanged()));
               },
               title: 'Save New Password',
               titleColor: customColors.brandSecondary!,

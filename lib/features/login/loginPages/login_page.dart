@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => ForgetPassword()));
+                        MaterialPageRoute(builder: (_) => const ForgetPassword()));
                   },
                   child: CustomText(
                       text: 'Forgot Password?',
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
               onTap: () {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => MainPage()),
+                  MaterialPageRoute(builder: (context) => const MainPage()),
                   (Route<dynamic> route) => false,
                 );
               },
@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CreateAccount()));
+                            builder: (context) => const CreateAccount()));
                   },
                   text: ' Create Now',
                   myStyle: headingheadingsm.copyWith(

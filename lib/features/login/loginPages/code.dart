@@ -32,7 +32,7 @@ class Code extends StatelessWidget {
           CustomButton(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ChangePassword()));
+                    MaterialPageRoute(builder: (context) => const ChangePassword()));
               },
               title: 'Continue',
               titleColor: AppLightColor.primaryColor,

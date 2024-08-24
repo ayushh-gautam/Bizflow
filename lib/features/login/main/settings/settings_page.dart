@@ -127,9 +127,9 @@ class SettingPage extends StatelessWidget {
 
   Widget generalTiles(BuildContext context, AppColors customColors) {
     final List<Widget Function()> screens = [
-      () => EditProfile(),
-      () => ChangePassword(),
-      () => NotificationScreen(),
+      () => const EditProfile(),
+      () => const ChangePassword(),
+      () => const NotificationScreen(),
     ];
     return Container(
         decoration: BoxDecoration(

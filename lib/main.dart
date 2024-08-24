@@ -15,7 +15,7 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MultiBlocProviderClass(MyApp()));
+  runApp(const MultiBlocProviderClass(MyApp()));
 }
 
 class MyApp extends StatelessWidget {

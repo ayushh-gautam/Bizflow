@@ -32,7 +32,7 @@ class ForgetPassword extends StatelessWidget {
           CustomButton(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (cxt) => Code()));
+                    context, MaterialPageRoute(builder: (cxt) => const Code()));
               },
               title: 'Send Code',
               titleColor: AppLightColor.primaryColor,

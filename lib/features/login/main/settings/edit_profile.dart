@@ -111,6 +111,7 @@ class EditProfile extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         SvgAsset.pen,
+                        // ignore: deprecated_member_use
                         color: customColors.textDefault,
                       ),
                       Gap(8.w),
