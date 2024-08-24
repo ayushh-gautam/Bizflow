@@ -48,4 +48,4 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
           groups: test # Distribution group(s) in Firebase
-          file: build/app/outputs/apk/release/app-release.apk
+          file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
