@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyClPjmZ-yYiuwi1Ra4gGebMX-vHjAg7UD0',
-    appId: '1:503054691567:android:8cc5dd3be1c21baf49bf1a',
+    appId: '1:503054691567:android:8b22662982ae0d6f49bf1a',
     messagingSenderId: '503054691567',
     projectId: 'fir-distribution-bizflow',
     storageBucket: 'fir-distribution-bizflow.appspot.com',
