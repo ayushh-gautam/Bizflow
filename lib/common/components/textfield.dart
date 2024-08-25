@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
   final bool password;
   final bool showError;
   final void Function()? trailingTapped;
+  //
 
   final circularBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
