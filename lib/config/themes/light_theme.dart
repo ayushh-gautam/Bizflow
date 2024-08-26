@@ -1,7 +1,15 @@
 import 'package:bizflow/config/themes/themeExtension/theme_extension.dart';
 import 'package:bizflow/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+
+SystemUiOverlayStyle lightSystemUiOverlayStyle = const SystemUiOverlayStyle(
+  statusBarColor: AppLightColor.bgBackground,
+  statusBarIconBrightness: Brightness.dark,
+  systemNavigationBarColor: AppLightColor.bgBackground,
+  systemNavigationBarIconBrightness: Brightness.dark,
+);
 ThemeData lightMode = ThemeData(
   scaffoldBackgroundColor: AppLightColor.bgBackground,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -16,6 +24,7 @@ ThemeData lightMode = ThemeData(
     surfaceTintColor: AppLightColor.bgBackground,
   ),
   brightness: Brightness.light,
+
   extensions: const [AppColors.light],
 );
 
