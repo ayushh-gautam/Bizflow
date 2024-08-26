@@ -16,119 +16,127 @@ class CreateAccount extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-                text: 'Create an Account',
-                myStyle: headingheadingxl.copyWith(
-                  color: customColors.textDefault,
-                )),
-            Gap(8.h),
-            CustomText(
-              text: 'Let\'s create your account to get started.',
-              myStyle:
-                  bodybodymddefault.copyWith(color: customColors.textSecondary),
-            ),
-            Gap(32.h),
-            CustomText(
-              text: 'Full Name',
-              myStyle:
-                  bodybodymdmedium.copyWith(color: customColors.textDefault),
-            ),
-            Gap(4.h),
-            CustomTextField(
-              controller: namecontroller,
-              placeholder: 'eg. Ayush',
-            ),
-            // controller
-
-            Gap(24.h),
-
-            CustomText(
-              text: 'Email',
-              myStyle:
-                  bodybodymdmedium.copyWith(color: customColors.textDefault),
-            ),
-            Gap(4.h),
-
-            CustomTextField(
-              controller: emailcontroller,
-              placeholder: 'sample@gmail.com',
-            ),
-
-            // controller
-
-            Gap(24.h),
-
-            Text(
-              'Password',
-              style: bodybodymdmedium.copyWith(color: customColors.textDefault),
-            ),
-
-            Gap(4.h),
-            CustomTextField(
-              controller: passwordcontroller,
-              placeholder: 'Enter your password',
-              password: true,
-              trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.visibility,
-                    color: customColors.textTeritary,
-                  )),
-            ),
-
-            // controller
-            Gap(24.h),
-            CustomButton(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const OtpPage()));
-                },
-                title: 'Sign Up',
-                titleColor: customColors.brandSecondary!,
-                buttonColor: customColors.brandPrimary!),
-
-            Gap(24.h),
-
-            CustomButton(
-                leading: SvgPicture.asset(
-                  SvgAsset.google,
-                  height: 24.h,
-                ),
-                title: 'Continue with Google',
-                titleColor: customColors.brandPrimary!,
-                buttonColor: customColors.bgTeritary!),
-
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText(
-                  text: 'Have an account?',
-                  myStyle: bodybodymddefault,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()));
-                  },
-                  child: CustomText(
-                    text: ' Login Now',
-                    myStyle: headingheadingsm.copyWith(
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                      text: 'Create an Account',
+                      myStyle: headingheadingxl.copyWith(
+                        color: customColors.textDefault,
+                      )),
+                  Gap(8.h),
+                  CustomText(
+                    text: 'Let\'s create your account to get started.',
+                    myStyle: bodybodymddefault.copyWith(
+                        color: customColors.textSecondary),
+                  ),
+                  Gap(32.h),
+                  CustomText(
+                    text: 'Full Name',
+                    myStyle: bodybodymdmedium.copyWith(
                         color: customColors.textDefault),
                   ),
-                )
-              ],
-            ).addMargin(EdgeInsets.only(bottom: 32.h, top: 120.h)),
+                  Gap(4.h),
+                  CustomTextField(
+                    controller: namecontroller,
+                    placeholder: 'eg. Ayush',
+                  ),
+                  // controller
 
-            //button
-          ],
-        ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+                  Gap(24.h),
+
+                  CustomText(
+                    text: 'Email',
+                    myStyle: bodybodymdmedium.copyWith(
+                        color: customColors.textDefault),
+                  ),
+                  Gap(4.h),
+
+                  CustomTextField(
+                    controller: emailcontroller,
+                    placeholder: 'sample@gmail.com',
+                  ),
+
+                  // controller
+
+                  Gap(24.h),
+
+                  Text(
+                    'Password',
+                    style: bodybodymdmedium.copyWith(
+                        color: customColors.textDefault),
+                  ),
+
+                  Gap(4.h),
+                  CustomTextField(
+                    controller: passwordcontroller,
+                    placeholder: 'Enter your password',
+                    password: true,
+                    trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.visibility,
+                          color: customColors.textTeritary,
+                        )),
+                  ),
+
+                  // controller
+                  Gap(24.h),
+                  CustomButton(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OtpPage()));
+                      },
+                      title: 'Sign Up',
+                      titleColor: customColors.brandSecondary!,
+                      buttonColor: customColors.brandPrimary!),
+
+                  Gap(24.h),
+
+                  CustomButton(
+                      leading: SvgPicture.asset(
+                        SvgAsset.google,
+                        height: 24.h,
+                      ),
+                      title: 'Continue with Google',
+                      titleColor: customColors.brandPrimary!,
+                      buttonColor: customColors.bgTeritary!),
+
+                  //button
+                ],
+              ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomText(
+                text: 'Have an account?',
+                myStyle: bodybodymddefault,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()));
+                },
+                child: CustomText(
+                  text: ' Login Now',
+                  myStyle: headingheadingsm.copyWith(
+                      color: customColors.textDefault),
+                ),
+              )
+            ],
+          ).addMargin(EdgeInsets.only(bottom: 32.h)),
+        ],
       ),
     );
   }
