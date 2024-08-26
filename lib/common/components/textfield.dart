@@ -42,7 +42,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: placeholder,
           hintStyle:
-              bodybodymddefault.copyWith(color: customColors.textDefault),
+              bodybodymddefault.copyWith(color: customColors.textTeritary),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
           filled: true,
