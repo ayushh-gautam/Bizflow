@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_color.dart';
 class AppColors extends ThemeExtension<AppColors> {
+
   final Color? brandPrimary;
   final Color? brandSecondary;
-
   final Color? bgBackground;
   final Color? bgSecondary;
   final Color? bgTeritary;
-
   final Color? borderSoft;
   final Color? borderDefault;
   final Color? borderSolid;
-
   final Color? textDefault;
   final Color? textSecondary;
   final Color? textTeritary;
-
   final Color? fillSuccess;
   final Color? fillError;
   final Color? fillWarning;
   final Color? fillInfo;
-
   final Color? surfaceSuccess;
   final Color? surfaceError;
   final Color? surfaceWarning;
   final Color? surfaceInfo;
-
   final Color? baseBlack;
   final Color? baseWhite;
 
