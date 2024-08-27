@@ -26,22 +26,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
 
     return BlocProvider(
       create: (context) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
-          
- WidgetsBinding.instance.addPostFrameCallback((_) {
-      final isDarkMode = theme.brightness == Brightness.dark;
-      SystemChrome.setSystemUIOverlayStyle(
-        isDarkMode ? darkSystemUiOverlayStyle : lightSystemUiOverlayStyle,
-      );
-    });
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            final isDarkMode = theme.brightness == Brightness.dark;
+            SystemChrome.setSystemUIOverlayStyle(
+              isDarkMode ? darkSystemUiOverlayStyle : lightSystemUiOverlayStyle,
+            );
+          });
           return ScreenUtilInit(
-            designSize: Size(width, height),
+            designSize: Size(
+              MediaQuery.of(context).size.width,
+              MediaQuery.of(context).size.height,
+            ),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: theme,
