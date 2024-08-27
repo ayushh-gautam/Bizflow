@@ -33,10 +33,20 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final customColors = Theme.of(context).extension<AppColors>()!;
+
+    getSvgIcon(String assetName, bool isSelected) {
+      return SvgPicture.asset(
+        assetName,
+        color:
+            isSelected ? customColors.textDefault : customColors.textSecondary,
+      );
+    }
+
     return Scaffold(
       body: myList[indexx],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: customColors.bgBackground,
+        selectedItemColor: customColors.brandPrimary,
         currentIndex: indexx,
         onTap: (index) {
           setState(() {
@@ -45,20 +55,29 @@ class _MainPageState extends State<MainPage> {
         },
         items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(SvgAsset.clients), label: 'Home'),
+              icon: getSvgIcon(SvgAsset.home, false),
+              activeIcon: getSvgIcon(SvgAsset.home, true),
+              label: 'Home'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(SvgAsset.projects), label: 'Projects'),
+              icon: getSvgIcon(SvgAsset.projects, false),
+              activeIcon: getSvgIcon(SvgAsset.projects, true),
+              label: 'Projects'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(SvgAsset.clients), label: 'Clients'),
+              icon: getSvgIcon(SvgAsset.clients, false),
+              activeIcon: getSvgIcon(SvgAsset.clients, true),
+              label: 'Clients'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(SvgAsset.invoice), label: 'Invoice'),
+              icon: getSvgIcon(SvgAsset.invoice, false),
+              activeIcon: getSvgIcon(SvgAsset.invoice, true),
+              label: 'Invoice'),
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.all(0),
-              child: SvgPicture.asset(SvgAsset.projects),
+              child: getSvgIcon(SvgAsset.settings, false),
             ),
             label: 'Settings',
-          ),
+            activeIcon: getSvgIcon(SvgAsset.settings, true),
+          )
         ],
       ),
     );
