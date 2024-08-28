@@ -16,4 +16,6 @@ class SvgAsset {
   static String settingsfilled = "$svgBasePath/settings-filled.svg";
 
   static String pen = "$svgBasePath/edit.svg";
+
+    static String notification = "$svgBasePath/notification.svg";
 }
