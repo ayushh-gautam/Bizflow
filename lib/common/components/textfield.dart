@@ -55,7 +55,7 @@ class CustomTextField extends StatelessWidget {
                 )
               : null,
           border: circularBorder.copyWith(
-            borderSide: BorderSide(color: customColors.borderSoft!),
+            borderSide: BorderSide(color: customColors.borderSoft!, width: 1),
           ),
           errorBorder: circularBorder.copyWith(
             borderSide: BorderSide(color: customColors.fillError!),
