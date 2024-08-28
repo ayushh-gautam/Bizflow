@@ -129,7 +129,13 @@ class SettingPage extends StatelessWidget {
     final List<Widget Function()> screens = [
       () => const EditProfile(),
       () => const ChangePassword(),
-      () => const NotificationScreen(),
+      () => const NofificationPage(),
+    ];
+    final generalTitles = [
+      'Edit Profile',
+      'Change Password',
+      'Notification',
+      'Dark Mode',
     ];
     return Container(
         decoration: BoxDecoration(
@@ -139,13 +145,6 @@ class SettingPage extends StatelessWidget {
           children: List.generate(
             4,
             (index) {
-              final generalTitles = [
-                'Edit Profile',
-                'Change Password',
-                'Notification',
-                'Dark Mode',
-              ];
-
               return ListTile(
                 title: CustomText(
                   text: generalTitles[index],
