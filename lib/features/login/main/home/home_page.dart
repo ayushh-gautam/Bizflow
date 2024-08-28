@@ -26,8 +26,10 @@ class HomePage extends StatelessWidget {
                 return const NofificationPage();
               }));
             },
-            child: SvgPicture.asset(SvgAsset.notification)
-                .addMargin(EdgeInsets.only(right: 12.w)),
+            child: SvgPicture.asset(
+              SvgAsset.notification,
+              color: customColors.textDefault,
+            ).addMargin(EdgeInsets.only(right: 12.w)),
           )
         ],
       ),
