@@ -1,3 +1,4 @@
+import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/config/themes/themeExtension/theme_extension.dart';
 import 'package:bizflow/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   //
 
   final circularBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(12.r),
   );
 
   CustomTextField({
