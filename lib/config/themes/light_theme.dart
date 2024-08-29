@@ -3,7 +3,6 @@ import 'package:bizflow/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 SystemUiOverlayStyle lightSystemUiOverlayStyle = const SystemUiOverlayStyle(
   statusBarColor: AppLightColor.bgBackground,
   statusBarIconBrightness: Brightness.dark,
@@ -24,7 +23,6 @@ ThemeData lightMode = ThemeData(
     surfaceTintColor: AppLightColor.bgBackground,
   ),
   brightness: Brightness.light,
-
   extensions: const [AppColors.light],
 );
 
