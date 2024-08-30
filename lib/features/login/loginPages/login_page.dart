@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
     final customColors = Theme.of(context).extension<AppColors>()!;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: customColors.bgBackground,
       appBar: AppBar(),
       body: Column(
@@ -51,7 +52,6 @@ class _LoginPageState extends State<LoginPage> {
                   CustomTextField(
                     controller: emailcontroller,
                     placeholder: 'Enter your email address',
-                    
                   ),
                   // controller
 
