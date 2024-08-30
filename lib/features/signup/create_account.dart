@@ -15,6 +15,7 @@ class CreateAccount extends StatelessWidget {
     final TextEditingController passwordcontroller = TextEditingController();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: Column(
         children: [
