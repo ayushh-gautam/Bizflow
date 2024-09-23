@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
           contentPadding:
               const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
           filled: true,
-          fillColor: customColors.baseWhite,
+          fillColor: customColors.bgBackground,
           prefixIcon: leading,
           suffixIcon: trailing != null
               ? GestureDetector(
