@@ -27,8 +27,12 @@ class EditProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gap(16.h),
+
+                  //--------------------- profile picturee--------------------//
                   profileEdit(context, customColors),
                   Gap(32.h),
+
+                  //--------------------input field section-----------------//
                   CustomText(
                     text: 'Full Name',
                     myStyle: bodybodymdmedium.copyWith(
@@ -66,6 +70,8 @@ class EditProfile extends StatelessWidget {
               ),
             ),
           ),
+
+          //---------------------Update Profile Button------------------------//
           CustomButton(
             title: 'Update Profile',
             titleColor: customColors.brandSecondary!,
@@ -133,7 +139,7 @@ void _showEditDialog(BuildContext context, AppColors customColors) {
     context: context,
     builder: (BuildContext context) {
       return Dialog(
-        backgroundColor: customColors.bgBackground! ,
+        backgroundColor: customColors.bgBackground!,
         insetPadding: EdgeInsets.symmetric(horizontal: 18.w),
         alignment: Alignment.center,
         shape:
