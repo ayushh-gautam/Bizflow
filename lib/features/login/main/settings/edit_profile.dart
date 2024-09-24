@@ -47,10 +47,8 @@ class EditProfile extends StatelessWidget {
                   ),
                   Gap(4.h),
                   CustomTextField(
-                    
                     controller: nameController,
                     placeholder: 'ayushgautam88@gmail.com',
-                    
                   ),
                   Gap(24.h),
                   CustomText(
@@ -135,6 +133,7 @@ void _showEditDialog(BuildContext context, AppColors customColors) {
     context: context,
     builder: (BuildContext context) {
       return Dialog(
+        backgroundColor: customColors.bgBackground! ,
         insetPadding: EdgeInsets.symmetric(horizontal: 18.w),
         alignment: Alignment.center,
         shape:
