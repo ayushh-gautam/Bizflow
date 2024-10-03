@@ -1,7 +1,7 @@
 import 'package:bizflow/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
-import '../../signup/create_account.dart';
+import '../signup/create_account.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
