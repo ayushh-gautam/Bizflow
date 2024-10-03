@@ -1,4 +1,4 @@
-import 'package:bizflow/common/components/text.dart';
+import 'package:bizflow/core/common/text.dart';
 import 'package:flutter/material.dart';
 
 class InvoicePage extends StatelessWidget {

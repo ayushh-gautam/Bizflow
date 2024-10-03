@@ -1,4 +1,4 @@
-import 'package:bizflow/core/constants/app_color.dart';
+import 'package:bizflow/config/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import '../signup/create_account.dart';

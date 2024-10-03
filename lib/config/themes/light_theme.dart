@@ -1,5 +1,5 @@
 import 'package:bizflow/config/themes/themeExtension/theme_extension.dart';
-import 'package:bizflow/core/constants/app_color.dart';
+import 'package:bizflow/config/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

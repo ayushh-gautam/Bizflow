@@ -1,7 +1,7 @@
 import 'package:bizflow/features/login/loginPages/code.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
-import '../../../core/constants/app_color.dart';
+import '../../../config/constants/app_color.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
