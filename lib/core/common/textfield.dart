@@ -1,7 +1,7 @@
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class KTextField extends StatelessWidget {
   final TextEditingController controller;
   final String placeholder;
   final Widget? leading;
@@ -15,7 +15,7 @@ class CustomTextField extends StatelessWidget {
     borderRadius: BorderRadius.circular(12.r),
   );
 
-  CustomTextField({
+  KTextField({
     super.key,
     required this.controller,
     this.placeholder = '',
