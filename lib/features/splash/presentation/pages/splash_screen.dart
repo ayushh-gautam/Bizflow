@@ -140,7 +140,7 @@ class _SplashScreenState extends State<SplashScreen>
                       },
                     ),
                     Gap(24.h),
-                    const CustomButton(
+                     CustomButton(
                       buttonColor: AppDarkColor.borderDefault,
                       title: 'Explore Demo',
                       titleColor: AppDarkColor.brandPrimary,
