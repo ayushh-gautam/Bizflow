@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   final bool disabled;
+  double? width;
   final Color buttonColor;
   final AlignmentGeometry? alignment;
   final bool busy;
@@ -14,19 +15,20 @@ class CustomButton extends StatelessWidget {
   final bool outline;
   final Widget? leading;
 
-  const CustomButton({
+   CustomButton({
     super.key,
     required this.title,
     this.disabled = false,
     this.busy = false,
     this.onTap,
+    this.width,
     this.leading,
     required this.titleColor,
     required this.buttonColor,
     this.alignment,
   }) : outline = false;
 
-  const CustomButton.outline({
+   CustomButton.outline({
     super.key,
     required this.title,
     this.onTap,
@@ -56,7 +58,7 @@ class CustomButton extends StatelessWidget {
         splashColor: Colors.grey.shade300,
         onTap: onTap,
         child: Container(
-          width: double.infinity,
+          width: width ??double.infinity ,
           height: 56.h,
           alignment: alignment ?? Alignment.center,
           child: busy
