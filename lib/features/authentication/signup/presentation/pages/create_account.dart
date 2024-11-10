@@ -1,5 +1,5 @@
-import 'package:bizflow/features/login/loginPages/login_page.dart';
-import 'package:bizflow/features/signup/otp_page.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/login_page.dart';
+import 'package:bizflow/features/authentication/signup/presentation/pages/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:bizflow/config/routes/imports.dart';
@@ -42,7 +42,7 @@ class CreateAccount extends StatelessWidget {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: namecontroller,
                     placeholder: 'eg. Ayush',
                   ),
@@ -57,7 +57,7 @@ class CreateAccount extends StatelessWidget {
                   ),
                   Gap(4.h),
 
-                  CustomTextField(
+                  KTextField(
                     controller: emailcontroller,
                     placeholder: 'sample@gmail.com',
                   ),
@@ -73,7 +73,7 @@ class CreateAccount extends StatelessWidget {
                   ),
 
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: passwordcontroller,
                     placeholder: 'Enter your password',
                     password: true,

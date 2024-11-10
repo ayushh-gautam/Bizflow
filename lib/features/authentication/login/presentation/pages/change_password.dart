@@ -1,4 +1,4 @@
-import 'package:bizflow/features/login/loginPages/password_changed.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/password_changed.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
@@ -60,7 +60,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             myStyle: bodybodymdmedium.copyWith(color: customColors.textDefault),
           ),
           Gap(4.h),
-          CustomTextField(
+          KTextField(
             trailing: Icon(
               Icons.visibility,
               color: customColors.borderDefault,
@@ -75,7 +75,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             myStyle: bodybodymdmedium.copyWith(color: customColors.textDefault),
           ),
           Gap(4.h),
-          CustomTextField(
+          KTextField(
             trailing: Icon(
               Icons.visibility,
               color: customColors.borderDefault,
@@ -96,8 +96,10 @@ class _ChangePasswordState extends State<ChangePassword> {
           Gap(32.h),
           CustomButton(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PasswordChanged()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PasswordChanged()));
               },
               title: 'Save New Password',
               titleColor: customColors.brandSecondary!,

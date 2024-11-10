@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
-
 class OtpPage extends StatelessWidget {
   const OtpPage({super.key});
 
@@ -26,7 +25,7 @@ class OtpPage extends StatelessWidget {
                 bodybodymddefault.copyWith(color: customColors.textSecondary),
           ),
           Gap(32.h),
-          CustomTextField(
+          KTextField(
             controller: emailController,
             placeholder: 'Enter Code',
           ),

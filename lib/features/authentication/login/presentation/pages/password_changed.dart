@@ -1,4 +1,4 @@
-import 'package:bizflow/features/login/loginPages/login_page.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:bizflow/config/routes/imports.dart';

@@ -1,6 +1,6 @@
-import 'package:bizflow/features/login/main/main_page.dart';
-import 'package:bizflow/features/login/loginPages/forget_password.dart';
-import 'package:bizflow/features/signup/create_account.dart';
+import 'package:bizflow/features/main_page.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/forget_password.dart';
+import 'package:bizflow/features/authentication/signup/presentation/pages/create_account.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: emailcontroller,
                     placeholder: 'Enter your email address',
                   ),
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Gap(4.h),
 
-                  CustomTextField(
+                  KTextField(
                     controller: passwordcontroller,
                     placeholder: 'Enter your password',
                     trailing: Icon(

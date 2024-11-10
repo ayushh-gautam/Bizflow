@@ -1,10 +1,10 @@
-import 'package:bizflow/features/login/loginPages/change_password.dart';
-import 'package:bizflow/features/login/main/settings/edit_profile.dart';
-import 'package:bizflow/features/login/main/settings/notification_screen.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/change_password.dart';
+import 'package:bizflow/features/settings/pages/edit_profile.dart';
+import 'package:bizflow/features/settings/pages/notification_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../config/themes/cubit/theme_cubit.dart';
+import '../../../config/themes/cubit/theme_cubit.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
 class SettingPage extends StatelessWidget {

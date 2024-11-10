@@ -1,8 +1,8 @@
-import 'package:bizflow/features/login/loginPages/change_password.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:bizflow/config/routes/imports.dart';
-import '../../../config/constants/app_color.dart';
+import '../../../../../config/constants/app_color.dart';
 
 
 class Code extends StatelessWidget {

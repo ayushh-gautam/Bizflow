@@ -46,7 +46,7 @@ class _EditProfileState extends State<EditProfile> {
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Gap(16.h),
 
                   //--------------------- profile picturee--------------------//
@@ -60,7 +60,7 @@ class _EditProfileState extends State<EditProfile> {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: TextEditingController(),
                     placeholder: 'Ayush Gautam',
                   ),
@@ -71,7 +71,7 @@ class _EditProfileState extends State<EditProfile> {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: TextEditingController(),
                     placeholder: 'ayushgautam88@gmail.com',
                   ),
@@ -82,7 +82,7 @@ class _EditProfileState extends State<EditProfile> {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
-                  CustomTextField(
+                  KTextField(
                     controller: TextEditingController(),
                     placeholder: '9811219209',
                   ),

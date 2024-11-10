@@ -1,7 +1,7 @@
-import 'package:bizflow/features/login/loginPages/code.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/code.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
-import '../../../config/constants/app_color.dart';
+import '../../../../../config/constants/app_color.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -20,11 +20,11 @@ class ForgetPassword extends StatelessWidget {
                 headingheadingxl.copyWith(color: AppDarkColor.brandSecondary),
           ),
           Gap(8.h),
-         const  CustomText(
+          const CustomText(
               text:
                   'Enter your email address and we\'ll send you\ncode to reset your password.'),
           Gap(32.h),
-          CustomTextField(
+          KTextField(
             controller: emailController,
             placeholder: 'Enter your email address',
           ),
