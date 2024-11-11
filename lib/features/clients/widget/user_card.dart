@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
-
 class UserCard extends StatelessWidget {
   final String userName;
   final String email;
@@ -25,8 +24,9 @@ class UserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final customColors = Theme.of(context).extension<AppColors>()!;
     return Card(
-      margin: const EdgeInsets.all(0),
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       elevation: 1,
+      color: customColors.bgBackground,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -39,7 +39,7 @@ class UserCard extends StatelessWidget {
               children: [
                 // User Photo
                 CircleAvatar(
-                  radius: 10.r,
+                  radius: 50.r,
                   backgroundImage: NetworkImage(userImageUrl),
                 ),
                 Gap(12.w),
@@ -49,28 +49,25 @@ class UserCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        userName,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      CustomText(
+                          text: userName,
+                          myStyle: bodybodymdsemibold.copyWith(
+                              color: customColors.textDefault)),
                       Gap(4.h),
-                      Text(
-                        email,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                        ),
-                      ),
+                      CustomText(
+                          text: email,
+                          myStyle: bodybodysmdefault.copyWith(
+                              color: customColors.textSecondary)),
                     ],
                   ),
                 ),
 
                 // Three-dot menu icon
                 IconButton(
-                  icon: Icon(Icons.more_vert),
+                  icon: Icon(
+                    Icons.more_vert,
+                    color: customColors.textDefault,
+                  ),
                   onPressed: () {},
                 ),
               ],
