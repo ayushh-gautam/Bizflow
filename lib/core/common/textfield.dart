@@ -36,10 +36,11 @@ class KTextField extends StatelessWidget {
       data: ThemeData(primaryColor: customColors.borderSoft),
       child: TextField(
         controller: controller,
-        style: const TextStyle(height: 1),
+        style: TextStyle(height: 1, color: customColors.textDefault),
         obscureText: password,
         decoration: InputDecoration(
           hintText: placeholder,
+          focusColor: customColors.baseWhite,
           hintStyle:
               bodybodymddefault.copyWith(color: customColors.textTeritary),
           contentPadding:
