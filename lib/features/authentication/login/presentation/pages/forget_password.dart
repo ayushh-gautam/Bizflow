@@ -1,4 +1,4 @@
-import 'package:bizflow/features/authentication/login/presentation/pages/code.dart';
+import 'package:bizflow/features/authentication/login/presentation/pages/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import '../../../../../config/constants/app_color.dart';
