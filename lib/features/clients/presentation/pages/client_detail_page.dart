@@ -112,13 +112,13 @@ class ClientDetail extends StatelessWidget {
                         ),
                         Gap(8.h),
                         CustomText(
-                          text: ': 9800000000',
+                          text: ': ${clientt.phoneNumber}',
                           myStyle: bodybodymddefault.copyWith(
                               color: customColors.textDefault),
                         ),
                         Gap(8.h),
                         CustomText(
-                          text: ': Biratnagar, Nepal',
+                          text: ': ${clientt.address}',
                           myStyle: bodybodymddefault.copyWith(
                               color: customColors.textDefault),
                         ),
