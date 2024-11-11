@@ -4,9 +4,8 @@ import 'package:pinput/pinput.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import '../../../../../config/constants/app_color.dart';
 
-
 class Code extends StatelessWidget {
-  const   Code({super.key});
+  const Code({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +24,14 @@ class Code extends StatelessWidget {
               text:
                   'We just sent a verification code to your email\nsample@gmail.com'),
           Gap(32.h),
-          const Center(child: Pinput(
-            
-          )),
+          const Center(child: Pinput()),
           Gap(32.h),
           CustomButton(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ChangePassword()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChangePassword()));
               },
               title: 'Continue',
               titleColor: AppLightColor.primaryColor,
@@ -53,7 +52,7 @@ class Code extends StatelessWidget {
             ],
           )
         ],
-      ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+      ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
     );
   }
 }

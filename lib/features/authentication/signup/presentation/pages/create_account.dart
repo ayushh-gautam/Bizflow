@@ -111,7 +111,7 @@ class CreateAccount extends StatelessWidget {
 
                   //button
                 ],
-              ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+              ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
             ),
           ),
           Row(

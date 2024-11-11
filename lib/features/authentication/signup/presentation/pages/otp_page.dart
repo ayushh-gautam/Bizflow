@@ -51,7 +51,7 @@ class OtpPage extends StatelessWidget {
             ],
           )
         ],
-      ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+      ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
     );
   }
 }

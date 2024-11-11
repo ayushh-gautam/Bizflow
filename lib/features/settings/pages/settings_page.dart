@@ -66,7 +66,7 @@ class SettingPage extends StatelessWidget {
                 buttonColor: customColors.bgBackground!),
             Gap(32.h),
           ],
-        ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+        ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
       ),
     );
   }

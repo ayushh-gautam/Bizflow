@@ -136,7 +136,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
               child: Container(
                   height: 32.h,
-                  width: 71.w,
+                  width: 71.h,
                   decoration: BoxDecoration(
                       color: customColors.bgBackground!,
                       borderRadius: BorderRadius.circular(58.r)),
@@ -148,7 +148,7 @@ class _EditProfileState extends State<EditProfile> {
                         // ignore: deprecated_member_use
                         color: customColors.textDefault,
                       ),
-                      Gap(8.w),
+                      Gap(8.h),
                       CustomText(
                         text: 'Edit',
                         myStyle: bodybodyxsmedium.copyWith(
@@ -200,7 +200,7 @@ class _EditProfileState extends State<EditProfile> {
             builder: (BuildContext context) {
               return Dialog(
                 backgroundColor: customColors.bgBackground,
-                insetPadding: EdgeInsets.symmetric(horizontal: 18.w),
+                insetPadding: EdgeInsets.symmetric(horizontal: 18.h),
                 alignment: Alignment.center,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r)),
@@ -229,7 +229,7 @@ class _EditProfileState extends State<EditProfile> {
       builder: (BuildContext context) {
         return Dialog(
           backgroundColor: customColors.bgBackground,
-          insetPadding: EdgeInsets.symmetric(horizontal: 18.w),
+          insetPadding: EdgeInsets.symmetric(horizontal: 18.h),
           alignment: Alignment.center,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),

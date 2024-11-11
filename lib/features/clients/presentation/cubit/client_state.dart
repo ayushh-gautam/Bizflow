@@ -1,4 +1,4 @@
-part of 'client_cubit.dart';
+import 'package:equatable/equatable.dart';
 
 sealed class ClientState extends Equatable {
   const ClientState();

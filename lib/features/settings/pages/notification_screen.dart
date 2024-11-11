@@ -67,7 +67,7 @@ class _NofificationPageState extends State<NofificationPage> {
           ),
         ),
       ).addMargin(
-        EdgeInsets.symmetric(horizontal: 16.w),
+        EdgeInsets.symmetric(horizontal: 16.h),
       ),
     );
   }
