@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
-
 class PasswordChanged extends StatelessWidget {
   const PasswordChanged({super.key});
 
@@ -46,7 +45,7 @@ class PasswordChanged extends StatelessWidget {
                 titleColor: customColors.brandSecondary!,
                 buttonColor: customColors.brandPrimary!),
           ],
-        ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+        ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
       ),
     );
   }
