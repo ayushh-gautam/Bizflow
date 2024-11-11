@@ -87,7 +87,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           ),
           if (showError) // Show error message
             Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: EdgeInsets.only(top: 8.h),
               child: Text(
                 'Passwords do not match',
                 style: TextStyle(color: customColors.fillError),
@@ -105,7 +105,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               titleColor: customColors.brandSecondary!,
               buttonColor: customColors.brandPrimary!),
         ],
-      ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+      ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
     );
   }
 }
