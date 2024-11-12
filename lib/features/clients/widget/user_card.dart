@@ -38,10 +38,16 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 // User Photo
-                CircleAvatar(
-                  radius: 50.r,
-                  backgroundImage: NetworkImage(userImageUrl),
+                Container(
+                  clipBehavior: Clip.antiAlias,
+                  height: 48.h,
+                  width: 48.h,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(12.r)),
+                  child: Image.network(
+                      'https://i.pinimg.com/736x/6c/69/29/6c6929de52523d306903c1d331181c19.jpg'),
                 ),
+
                 Gap(12.w),
 
                 // User Name and Email
@@ -74,11 +80,11 @@ class UserCard extends StatelessWidget {
             ),
 
             // Horizontal Line
+
             Divider(
-              height: 32,
               thickness: 1,
               color: customColors.borderSoft,
-            ),
+            ).addMargin(EdgeInsets.symmetric(vertical: 16.h)),
 
             // Bottom Row with Projects, Invoice, and Status
             Row(
