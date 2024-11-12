@@ -47,12 +47,24 @@ class _AddClientPageState extends State<AddClientPage> {
       bottomNavigationBar: CustomButton(
               onTap: () {
                 final newClient = Client(
-                    fullName: _fullNameController.text,
-                    companyName: _companyNameController.text,
-                    email: _emailController.text,
-                    tags: _tagsController.text,
-                    phoneNumber: _phoneNumberController.text,
-                    address: _addressController.text);
+                    fullName: _fullNameController.text.isNotEmpty
+                        ? _fullNameController.text
+                        : 'User001',
+                    companyName: _companyNameController.text.isNotEmpty
+                        ? _companyNameController.text
+                        : 'Google',
+                    email: _emailController.text.isNotEmpty
+                        ? _emailController.text
+                        : 'abc@gmail.com',
+                    tags: _tagsController.text.isNotEmpty
+                        ? _tagsController.text
+                        : 'Developer',
+                    phoneNumber: _phoneNumberController.text.isNotEmpty
+                        ? _phoneNumberController.text
+                        : '9811200210',
+                    address: _addressController.text.isNotEmpty
+                        ? _addressController.text
+                        : 'Kathmandu');
                 context.read<ClientCubit>().addClient(newClient);
 
                 Navigator.pop(context);
