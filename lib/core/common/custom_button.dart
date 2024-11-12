@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
   final String title;
   final bool disabled;
   double? width;
+  double? height;
   final Color buttonColor;
   final AlignmentGeometry? alignment;
   final bool busy;
@@ -22,6 +23,7 @@ class CustomButton extends StatelessWidget {
     this.busy = false,
     this.onTap,
     this.width,
+    this.height,
     this.leading,
     required this.titleColor,
     required this.buttonColor,
@@ -59,7 +61,7 @@ class CustomButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: width ??double.infinity ,
-          height: 56.h,
+          height: height ??56.h,
           alignment: alignment ?? Alignment.center,
           child: busy
               ? const CircularProgressIndicator(
