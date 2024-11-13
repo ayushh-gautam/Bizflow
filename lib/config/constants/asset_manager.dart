@@ -17,5 +17,7 @@ class SvgAsset {
 
   static String pen = "$svgBasePath/edit.svg";
 
-    static String notification = "$svgBasePath/notification.svg";
+  static String notification = "$svgBasePath/notification.svg";
+
+  static String emptyState = "$svgBasePath/empty_state.svg";
 }
