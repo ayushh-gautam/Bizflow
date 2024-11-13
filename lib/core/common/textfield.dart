@@ -8,6 +8,7 @@ class KTextField extends StatelessWidget {
   final Widget? trailing;
   final bool password;
   final bool showError;
+  FocusNode? focusnode;
   final void Function()? trailingTapped;
   //
 
@@ -17,6 +18,7 @@ class KTextField extends StatelessWidget {
 
   KTextField({
     super.key,
+    this.focusnode,
     required this.controller,
     this.placeholder = '',
     this.leading,
@@ -35,6 +37,7 @@ class KTextField extends StatelessWidget {
       /// We can also avoid this by changing the [primarySwatch] in MaterialApp
       data: ThemeData(primaryColor: customColors.borderSoft),
       child: TextField(
+        focusNode: focusnode,
         controller: controller,
         style: TextStyle(height: 1, color: customColors.textDefault),
         obscureText: password,
