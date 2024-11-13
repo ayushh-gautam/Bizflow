@@ -1,4 +1,5 @@
 import 'package:bizflow/config/routes/imports.dart';
+import 'package:bizflow/features/clients/widget/active/inactive_badge.dart';
 import 'package:flutter/material.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -15,21 +16,7 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Container(
-              width: 52.h,
-              padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 4.h),
-              decoration: BoxDecoration(
-                  color: Colors.green.shade100,
-                  border: Border.all(width: 1, color: Colors.green.shade300),
-                  borderRadius: BorderRadius.circular(4.r)),
-              child: Center(
-                child: CustomText(
-                  text: 'Active',
-                  myStyle: bodybodyxsmedium.copyWith(
-                      color: customColors.fillSuccess),
-                ),
-              ),
-            ),
+            ActiveInactiveBadge(width: 56.h, title: 'Active'),
             Gap(12.h),
             CustomText(
               text: 'Project 1',

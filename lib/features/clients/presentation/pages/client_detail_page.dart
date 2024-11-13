@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/core/common/custom_animated_expansion.dart';
 import 'package:bizflow/features/clients/data/model/client_model.dart';
+import 'package:bizflow/features/clients/widget/active/inactive_badge.dart';
 import 'package:bizflow/features/clients/widget/project_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class _ClientDetailState extends State<ClientDetail> {
                             width: 361.h,
                             height: 100.h,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: customColors.bgBackground,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(
@@ -120,7 +121,7 @@ class _ClientDetailState extends State<ClientDetail> {
             ),
             Gap(12.h),
             SizedBox(
-              height: 112.h,
+              height: 130.h,
               child: ListView.builder(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
@@ -285,20 +286,8 @@ class _ClientDetailState extends State<ClientDetail> {
         ),
         const Spacer(),
 
-        Container(
-          width: 52.h,
-          padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 4.h),
-          decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Colors.green.shade300),
-              color: Colors.green.shade100,
-              borderRadius: BorderRadius.circular(4.r)),
-          child: Center(
-            child: CustomText(
-              text: 'Active',
-              myStyle:
-                  bodybodyxsmedium.copyWith(color: customColors.fillSuccess),
-            ),
-          ),
+        ActiveInactiveBadge(
+          title: 'Active',
         ),
 
         //client type
@@ -326,22 +315,7 @@ class _ClientDetailState extends State<ClientDetail> {
                       color: customColors.textDefault),
                 ),
                 Gap(12.h),
-                Container(
-                  width: 52.h,
-                  padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 4.h),
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(width: 1, color: Colors.green.shade300),
-                      color: Colors.green.shade100,
-                      borderRadius: BorderRadius.circular(4.r)),
-                  child: Center(
-                    child: CustomText(
-                      text: 'Active',
-                      myStyle: bodybodyxsmedium.copyWith(
-                          color: customColors.fillSuccess),
-                    ),
-                  ),
-                ),
+                ActiveInactiveBadge(title: 'Inactive')
               ],
             )
           ],
