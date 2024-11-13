@@ -226,12 +226,14 @@ class _AddClientPageState extends State<AddClientPage> {
                     spacing: 8.0,
                     children: _selectedTags.map((tag) {
                       return Chip(
-                        backgroundColor: customColors.baseWhite,
+                        backgroundColor: customColors.bgBackground,
                         shape: RoundedRectangleBorder(
                             side:
                                 BorderSide(color: customColors.borderDefault!),
                             borderRadius: BorderRadius.circular(32)),
                         label: Text(tag),
+                        labelStyle: bodybodysmdefault.copyWith(
+                            color: customColors.textDefault),
                         deleteIcon: const Icon(Icons.close),
                         onDeleted: () => _removeTag(tag),
                       );
