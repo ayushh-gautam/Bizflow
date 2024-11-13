@@ -27,6 +27,74 @@ class _AddClientPageState extends State<AddClientPage> {
     setState(() {});
   }
 
+//list of static tags
+  final FocusNode _focusNode = FocusNode();
+  final List<String> _allTags = [
+    'Animation',
+    '3D',
+    'Logo',
+    'Freelance',
+    'Full Time'
+  ];
+
+  final List<String> _filterTags = [];
+  final List<String> _selectedTags = [];
+
+  void _onFocusChange() {
+    if (_focusNode.hasFocus && _tagsController.text.isEmpty) {
+      setState(() {
+        _filterTags.clear();
+        _filterTags.addAll(_allTags); // Show all jobs initially
+      });
+    }
+  }
+
+  void _filterTag() {
+    setState(() {
+      _filterTags.clear();
+      String input = _tagsController.text.toLowerCase();
+      if (input.isNotEmpty) {
+        _filterTags.addAll(
+          _allTags.where((job) => job.toLowerCase().contains(input)),
+        );
+        if (_filterTags.isEmpty) {
+          _filterTags.add('Add "$input"');
+        }
+      } else if (_focusNode.hasFocus) {
+        // Show all jobs if focused and input is empty
+        _filterTags.addAll(_allTags);
+      }
+    });
+  }
+
+  void _addTag(String job) {
+    setState(() {
+      if (job.startsWith('Add "')) {
+        job = job.substring(5, job.length - 1);
+        _allTags.add(job);
+      }
+      if (!_selectedTags.contains(job)) {
+        _selectedTags.add(job);
+      }
+      _tagsController.clear();
+      _filterTags.clear();
+    });
+  }
+
+  void _removeTag(String job) {
+    setState(() {
+      _selectedTags.remove(job);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _tagsController.addListener(_filterTag);
+    _focusNode.addListener(_onFocusChange);
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -37,6 +105,7 @@ class _AddClientPageState extends State<AddClientPage> {
     _phoneNumberController.dispose();
     _addressController.dispose();
     _descriptionController.dispose();
+    _focusNode.dispose();
   }
 
   @override
@@ -132,11 +201,44 @@ class _AddClientPageState extends State<AddClientPage> {
                         color: customColors.textDefault),
                   ),
                   Gap(4.h),
+
                   KTextField(
+                    focusnode: _focusNode,
                     controller: _tagsController,
                     placeholder: 'Add New Tags',
                   ),
-                  Gap(24.h),
+
+                  ///hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+                  if (_filterTags.isNotEmpty)
+                    SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                        itemCount: _filterTags.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(_filterTags[index]),
+                            onTap: () => _addTag(_filterTags[index]),
+                          );
+                        },
+                      ),
+                    ),
+                  Wrap(
+                    spacing: 8.0,
+                    children: _selectedTags.map((tag) {
+                      return Chip(
+                        backgroundColor: customColors.baseWhite,
+                        shape: RoundedRectangleBorder(
+                            side:
+                                BorderSide(color: customColors.borderDefault!),
+                            borderRadius: BorderRadius.circular(32)),
+                        label: Text(tag),
+                        deleteIcon: const Icon(Icons.close),
+                        onDeleted: () => _removeTag(tag),
+                      );
+                    }).toList(),
+                  ),
+
+                  Gap(18.h),
                   GestureDetector(
                       onTap: tapped,
                       child: Row(
