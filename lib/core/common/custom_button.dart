@@ -15,9 +15,11 @@ class CustomButton extends StatelessWidget {
   final void Function()? onTap;
   final bool outline;
   final Widget? leading;
+  TextStyle? style;
 
-   CustomButton({
+  CustomButton({
     super.key,
+    this.style,
     required this.title,
     this.disabled = false,
     this.busy = false,
@@ -30,7 +32,7 @@ class CustomButton extends StatelessWidget {
     this.alignment,
   }) : outline = false;
 
-   CustomButton.outline({
+  CustomButton.outline({
     super.key,
     required this.title,
     this.onTap,
@@ -60,8 +62,8 @@ class CustomButton extends StatelessWidget {
         splashColor: Colors.grey.shade300,
         onTap: onTap,
         child: Container(
-          width: width ??double.infinity ,
-          height: height ??56.h,
+          width: width ?? double.infinity,
+          height: height ?? 56.h,
           alignment: alignment ?? Alignment.center,
           child: busy
               ? const CircularProgressIndicator(
@@ -75,13 +77,14 @@ class CustomButton extends StatelessWidget {
                     if (leading != null) Gap(5.w),
                     Text(
                       title,
-                      style: bodybodylgsemibold.copyWith(
-                        fontWeight:
-                            !outline ? FontWeight.w600 : FontWeight.w400,
-                        color: !outline
-                            ? titleColor
-                            : Theme.of(context).primaryColorLight,
-                      ),
+                      style: style ??
+                          bodybodylgsemibold.copyWith(
+                            fontWeight:
+                                !outline ? FontWeight.w600 : FontWeight.w400,
+                            color: !outline
+                                ? titleColor
+                                : Theme.of(context).primaryColorLight,
+                          ),
                     ),
                   ],
                 ),
