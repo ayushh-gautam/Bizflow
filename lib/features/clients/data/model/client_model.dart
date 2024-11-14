@@ -2,7 +2,7 @@ class Client {
   final String fullName;
   final String companyName;
   final String email;
-  final String tags;
+  final List<String> tags;
   final String phoneNumber;
   final String address;
 
