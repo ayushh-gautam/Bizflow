@@ -125,9 +125,7 @@ class _AddClientPageState extends State<AddClientPage> {
                     email: _emailController.text.isNotEmpty
                         ? _emailController.text
                         : 'abc@gmail.com',
-                    tags: _tagsController.text.isNotEmpty
-                        ? _tagsController.text
-                        : 'Developer',
+                    tags: _selectedTags,
                     phoneNumber: _phoneNumberController.text.isNotEmpty
                         ? _phoneNumberController.text
                         : '9811200210',
