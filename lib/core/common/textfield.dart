@@ -9,6 +9,7 @@ class KTextField extends StatelessWidget {
   final bool password;
   final bool showError;
   FocusNode? focusnode;
+  final FormFieldValidator<String>? validator;
   final void Function()? trailingTapped;
   //
 
@@ -25,7 +26,7 @@ class KTextField extends StatelessWidget {
     this.trailing,
     this.trailingTapped,
     this.password = false,
-    this.showError = false,
+    this.showError = false, this.validator,
   });
 
   @override
@@ -36,9 +37,11 @@ class KTextField extends StatelessWidget {
       ///
       /// We can also avoid this by changing the [primarySwatch] in MaterialApp
       data: ThemeData(primaryColor: customColors.borderSoft),
-      child: TextField(
+      child: TextFormField(
         focusNode: focusnode,
         controller: controller,
+        
+        validator: validator,
         style: TextStyle(height: 1, color: customColors.textDefault),
         obscureText: password,
         decoration: InputDecoration(
