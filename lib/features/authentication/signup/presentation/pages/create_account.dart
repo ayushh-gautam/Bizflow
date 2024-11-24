@@ -1,3 +1,4 @@
+import 'package:bizflow/core/common/custom_textfield_section.dart';
 import 'package:bizflow/features/authentication/login/presentation/pages/login_page.dart';
 import 'package:bizflow/features/authentication/signup/presentation/pages/otp_page.dart';
 import 'package:flutter/material.dart';
@@ -36,56 +37,26 @@ class CreateAccount extends StatelessWidget {
                         color: customColors.textSecondary),
                   ),
                   Gap(32.h),
-                  CustomText(
-                    text: 'Full Name',
-                    myStyle: bodybodymdmedium.copyWith(
-                        color: customColors.textDefault),
-                  ),
-                  Gap(4.h),
-                  KTextField(
-                    controller: namecontroller,
-                    placeholder: 'eg. Ayush',
-                  ),
-                  // controller
-
+                  TextFieldSection(
+                      customColors: customColors,
+                      title: 'Full Name',
+                      controller: namecontroller,
+                      placeholder: 'e.g: Sample Name'),
                   Gap(24.h),
-
-                  CustomText(
-                    text: 'Email',
-                    myStyle: bodybodymdmedium.copyWith(
-                        color: customColors.textDefault),
-                  ),
-                  Gap(4.h),
-
-                  KTextField(
-                    controller: emailcontroller,
-                    placeholder: 'sample@gmail.com',
-                  ),
-
-                  // controller
-
+                  TextFieldSection(
+                      customColors: customColors,
+                      title: 'Email',
+                      controller: emailcontroller,
+                      placeholder: 'samplegmail.com'),
                   Gap(24.h),
-
-                  Text(
-                    'Password',
-                    style: bodybodymdmedium.copyWith(
-                        color: customColors.textDefault),
-                  ),
-
-                  Gap(4.h),
-                  KTextField(
-                    controller: passwordcontroller,
-                    placeholder: 'Enter your password',
-                    password: true,
-                    trailing: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.visibility,
-                          color: customColors.textTeritary,
-                        )),
-                  ),
-
-                  // controller
+                  TextFieldSection(
+                      customColors: customColors,
+                      title: 'Password',
+                      controller: passwordcontroller,
+                      password: true,
+                      trailingTapped: () {},
+                      trailing: const Icon(Icons.visibility),
+                      placeholder: 'Enter your password'),
                   Gap(24.h),
                   CustomButton(
                       onTap: () {
@@ -97,9 +68,7 @@ class CreateAccount extends StatelessWidget {
                       title: 'Sign Up',
                       titleColor: customColors.brandSecondary!,
                       buttonColor: customColors.brandPrimary!),
-
                   Gap(24.h),
-
                   CustomButton(
                       leading: SvgPicture.asset(
                         SvgAsset.google,
@@ -108,7 +77,6 @@ class CreateAccount extends StatelessWidget {
                       title: 'Continue with Google',
                       titleColor: customColors.brandPrimary!,
                       buttonColor: customColors.bgTeritary!),
-
                   //button
                 ],
               ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),
