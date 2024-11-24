@@ -5,6 +5,8 @@ import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../core/common/custom_textfield_section.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -43,35 +45,22 @@ class _LoginPageState extends State<LoginPage> {
                     myStyle: bodybodymddefault,
                   ),
                   Gap(32.h),
-                  CustomText(
-                    text: 'Email',
-                    myStyle: bodybodymdmedium.copyWith(
-                        color: customColors.textDefault),
-                  ),
-                  Gap(4.h),
-                  KTextField(
-                    controller: emailcontroller,
-                    placeholder: 'Enter your email address',
-                  ),
+                  TextFieldSection(
+                      controller: emailcontroller,
+                      title: 'Email',
+                      placeholder: 'Enter your email',
+                      customColors: customColors),
                   // controller
-
                   Gap(24.h),
 
-                  CustomText(
-                    text: 'Password',
-                    myStyle: bodybodymdmedium.copyWith(
-                        color: customColors.textDefault),
-                  ),
-                  Gap(4.h),
-
-                  KTextField(
-                    controller: passwordcontroller,
-                    placeholder: 'Enter your password',
-                    trailing: Icon(
-                      Icons.visibility,
-                      color: customColors.textTeritary,
-                    ),
-                  ),
+                  TextFieldSection(
+                      customColors: customColors,
+                      title: 'Password',
+                      password: true,
+                      trailingTapped: () {},
+                      trailing: const Icon(Icons.visibility),
+                      controller: passwordcontroller,
+                      placeholder: 'Enter your password'),
                   Gap(24.h),
 
                   Row(
@@ -112,11 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ],
                   ),
-                  // controller
-
-                  // controller
                   Gap(32.h),
-
                   CustomButton(
                     onTap: () {
                       Navigator.pushAndRemoveUntil(
@@ -130,9 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                     titleColor: customColors.brandSecondary!,
                     buttonColor: customColors.brandPrimary!,
                   ),
-
                   Gap(24.h),
-
                   CustomButton(
                       leading: SvgPicture.asset(
                         SvgAsset.google,
@@ -141,8 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                       title: 'Continue with Google',
                       titleColor: customColors.brandPrimary!,
                       buttonColor: customColors.bgTeritary!),
-
-                  //button
                 ],
               ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
             ),
