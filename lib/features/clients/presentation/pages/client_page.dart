@@ -26,103 +26,144 @@ class ClientPage extends StatelessWidget {
         floatingActionButton:
             BlocBuilder<ClientCubit, List<Client>>(builder: (context, clients) {
           if (clients.isEmpty) {
-            return SizedBox();
+            return const SizedBox();
           } else {
-            return CustomButton(
-              title: 'Add Client',
-              width: 170.h,
-              titleColor: customColors.brandSecondary!,
-              buttonColor: customColors.brandPrimary!,
-              leading: Icon(
-                Icons.add,
-                color: customColors.brandSecondary!,
+            // return FloatingActionButton.extended(
+            //     onPressed: () {
+            //       Navigator.push(context, MaterialPageRoute(builder: (builder) {
+            //         return const AddClientPage();
+            //       }));
+            //     },
+            //     label: Text('hahaha'));
+            return Material(
+              elevation: 5,
+              child: CustomButton(
+                title: 'Add Client',
+                width: 170.h,
+                titleColor: customColors.brandSecondary!,
+                buttonColor: customColors.brandPrimary!,
+                leading: Icon(
+                  Icons.add,
+                  color: customColors.brandSecondary!,
+                ),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (builder) {
+                    return const AddClientPage();
+                  }));
+                },
               ),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (builder) {
-                  return const AddClientPage();
-                }));
-              },
             );
           }
         }),
-        body: Column(
-          children: <Widget>[
-            Gap(16.h),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Gap(16.h),
 
-            //searchh icon
+              //searchh icon
 
-            BlocBuilder<ClientCubit, List<Client>>(
-              builder: (context, clients) {
-                if (clients.isEmpty) {
-                  return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              BlocBuilder<ClientCubit, List<Client>>(
+                builder: (context, clients) {
+                  if (clients.isEmpty) {
+                    return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Gap(40.h),
+                          SvgPicture.asset(SvgAsset.emptyState),
+                          Gap(28.h),
+                          CustomText(
+                            text: 'Let\'s Add your first Client',
+                            myStyle: headingheadingmd.copyWith(
+                                color: customColors.textDefault),
+                          ),
+                          Gap(6.h),
+                          CustomText(
+                            textAlign: TextAlign.center,
+                            text:
+                                'Add a new client to get started managing your projects.',
+                            myStyle: bodybodymddefault.copyWith(
+                                color: customColors.textSecondary),
+                          ),
+                          Gap(8.h),
+                          CustomButton(
+                              height: 52.h,
+                              width: 120.h,
+                              style: bodybodymdmedium.copyWith(
+                                  color: customColors.brandSecondary),
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return const AddClientPage();
+                                  },
+                                ));
+                              },
+                              leading: Icon(
+                                Icons.add,
+                                color: customColors.brandSecondary,
+                              ),
+                              title: 'Add Client',
+                              titleColor: customColors.brandSecondary!,
+                              buttonColor: customColors.brandPrimary!)
+                        ]).addMargin(EdgeInsets.symmetric(horizontal: 16.h));
+                  } else {
+                    return Column(
                       children: [
-                        Gap(40.h),
-                        SvgPicture.asset(SvgAsset.emptyState),
-                        Gap(28.h),
-                        CustomText(
-                          text: 'Let\'s Add your first Client',
-                          myStyle: headingheadingmd.copyWith(
-                              color: customColors.textDefault),
-                        ),
-                        Gap(6.h),
-                        CustomText(
-                          textAlign: TextAlign.center,
-                          text:
-                              'Add a new client to get started managing your projects.',
-                          myStyle: bodybodymddefault.copyWith(
-                              color: customColors.textSecondary),
-                        ),
-                        Gap(8.h),
-                        CustomButton(
-                            height: 52.h,
-                            width: 120.h,
-                            style: bodybodymdmedium.copyWith(
-                                color: customColors.brandSecondary),
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return const AddClientPage();
-                                },
-                              ));
-                            },
-                            leading: Icon(
-                              Icons.add,
-                              color: customColors.brandSecondary,
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 301.h,
+                              child: KTextField(
+                                controller: TextEditingController(),
+                                leading: const Icon(Icons.search),
+                              ),
                             ),
-                            title: 'Add Client',
-                            titleColor: customColors.brandSecondary!,
-                            buttonColor: customColors.brandPrimary!)
-                      ]).addMargin(EdgeInsets.symmetric(horizontal: 16.h));
-                } else {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: clients.length,
-                    itemBuilder: (context, index) {
-                      final client = clients[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ClientDetail(
-                              clientt: client,
+                            Gap(10.h),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 48.h,
+                              width: 48.h,
+                              decoration: BoxDecoration(
+                                  color: customColors.bgBackground,
+                                  borderRadius: BorderRadius.circular(12.r)),
+                              child: Icon(
+                                Icons.filter,
+                                size: 10,
+                              ),
+                            )
+                          ],
+                        ),
+                        ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: clients.length,
+                          itemBuilder: (context, index) {
+                            final client = clients[index];
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return ClientDetail(
+                                    clientt: client,
+                                  );
+                                }));
+                              },
+                              child: UserCard(
+                                  userName: client.fullName,
+                                  email: client.email,
+                                  totalProjects: 10.toString(),
+                                  invoiceAmount: 3000.toString(),
+                                  projectStatus: 'Completed',
+                                  userImageUrl: ''),
                             );
-                          }));
-                        },
-                        child: UserCard(
-                            userName: client.fullName,
-                            email: client.email,
-                            totalProjects: 10.toString(),
-                            invoiceAmount: 3000.toString(),
-                            projectStatus: 'Completed',
-                            userImageUrl: ''),
-                      );
-                    },
-                  );
-                }
-              },
-            ),
-          ],
-        ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)));
+                          },
+                        ),
+                      ],
+                    );
+                  }
+                },
+              ),
+            ],
+          ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
+        ));
   }
 }
