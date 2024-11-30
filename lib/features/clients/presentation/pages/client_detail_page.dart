@@ -240,24 +240,30 @@ class _ClientDetailState extends State<ClientDetail> {
                   bodybodymddefault.copyWith(color: customColors.textDefault),
             ),
             Gap(8.h),
-            Wrap(
-              spacing: 8.h,
-              children: widget.clientt.tags.map((tag) {
-                return Chip(
-                  backgroundColor: customColors.bgBackground,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: customColors.borderDefault!),
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 0),
-                  label: Text(
-                    tag,
-                    style: bodybodysmdefault.copyWith(
-                        color: customColors.textDefault),
-                  ),
-                );
-              }).toList(),
+
+            CustomText(
+              text: ':  Developer',
+              myStyle:
+                  bodybodymddefault.copyWith(color: customColors.textDefault),
             )
+            // Wrap(
+            //   spacing: 8.h,
+            //   children: widget.clientt.tags.map((tag) {
+            //     return Chip(
+            //       backgroundColor: customColors.bgBackground,
+            //       shape: RoundedRectangleBorder(
+            //         side: BorderSide(color: customColors.borderDefault!),
+            //         borderRadius: BorderRadius.circular(32),
+            //       ),
+            //       padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 0),
+            //       label: Text(
+            //         'Developer',
+            //         style: bodybodysmdefault.copyWith(
+            //             color: customColors.textDefault),
+            //       ),
+            //     );
+            //   }).toList(),
+            // )
           ],
         ),
         const Spacer(),
