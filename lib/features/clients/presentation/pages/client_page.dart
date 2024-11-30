@@ -28,13 +28,6 @@ class ClientPage extends StatelessWidget {
           if (clients.isEmpty) {
             return const SizedBox();
           } else {
-            // return FloatingActionButton.extended(
-            //     onPressed: () {
-            //       Navigator.push(context, MaterialPageRoute(builder: (builder) {
-            //         return const AddClientPage();
-            //       }));
-            //     },
-            //     label: Text('hahaha'));
             return Material(
               elevation: 5,
               child: CustomButton(
@@ -125,10 +118,28 @@ class ClientPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: customColors.bgBackground,
                                   borderRadius: BorderRadius.circular(12.r)),
-                              child: Icon(
-                                Icons.filter,
-                                size: 10,
-                              ),
+                              child: IconButton(
+                                  onPressed: () {
+                                    showModalBottomSheet(
+                                        backgroundColor:
+                                            customColors.bgBackground,
+                                        isDismissible: true,
+                                        enableDrag: true,
+                                        context: context,
+                                        builder: (context) {
+                                          return const SizedBox(
+                                            height: 400,
+                                            width: double.infinity,
+                                            child: Column(
+                                              children: [Text('Hahahah')],
+                                            ),
+                                          );
+                                        });
+                                  },
+                                  icon: const Icon(
+                                    Icons.filter,
+                                    size: 10,
+                                  )),
                             )
                           ],
                         ),
