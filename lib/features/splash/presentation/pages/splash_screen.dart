@@ -23,7 +23,6 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
     // Logo animation controller
     _logoController = AnimationController(
       duration: const Duration(seconds: 3),
@@ -33,13 +32,11 @@ class _SplashScreenState extends State<SplashScreen>
           _textController.forward();
         }
       });
-
     // Text animation controller
     _textController = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
     );
-
     // Logo animation
     _logoAnimation = Tween<double>(begin: -2.0, end: 0.0).animate(
       CurvedAnimation(
@@ -55,7 +52,6 @@ class _SplashScreenState extends State<SplashScreen>
         curve: Curves.ease,
       ),
     );
-
     // Text slide animation
     _textAnimation = Tween<Offset>(
       begin: const Offset(0, 1),
@@ -66,7 +62,6 @@ class _SplashScreenState extends State<SplashScreen>
         curve: Curves.ease,
       ),
     );
-
     // Text fade animation
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -74,7 +69,6 @@ class _SplashScreenState extends State<SplashScreen>
         curve: Curves.ease,
       ),
     );
-
     _logoController.forward();
   }
 

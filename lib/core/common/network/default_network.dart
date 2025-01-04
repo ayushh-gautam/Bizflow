@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as web;
-import '../error/failure.dart';
-import '../error/result.dart';
+import '../../error/failure.dart';
+import '../../error/result.dart';
 
 import 'network.dart';
 

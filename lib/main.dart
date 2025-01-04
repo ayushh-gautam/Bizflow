@@ -1,5 +1,5 @@
 import 'package:bizflow/config/themes/cubit/theme_cubit.dart';
-import 'package:bizflow/features/authentication/login/presentation/pages/login_page.dart';
+import 'package:bizflow/features/splash/presentation/pages/splash_screen.dart';
 import 'package:bizflow/firebase_options.dart';
 import 'package:bizflow/multibloc_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProviderClass(
       BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {    
             final isDarkMode = theme.brightness == Brightness.dark;
             SystemChrome.setSystemUIOverlayStyle(
               isDarkMode ? darkSystemUiOverlayStyle : lightSystemUiOverlayStyle,
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: theme,
-              home: const LoginPage(),
+              home: const SplashScreen(),
             ),
           );
         },

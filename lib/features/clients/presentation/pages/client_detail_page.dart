@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/core/common/custom_animated_expansion.dart';
 import 'package:bizflow/features/clients/data/model/client_model.dart';
-import 'package:bizflow/features/clients/widget/active/inactive_badge.dart';
+import 'package:bizflow/features/clients/widget/inactive_badge.dart';
 import 'package:bizflow/features/clients/widget/project_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

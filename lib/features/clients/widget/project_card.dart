@@ -1,5 +1,5 @@
 import 'package:bizflow/config/routes/imports.dart';
-import 'package:bizflow/features/clients/widget/active/inactive_badge.dart';
+import 'package:bizflow/features/clients/widget/inactive_badge.dart';
 import 'package:flutter/material.dart';
 
 class ProjectCard extends StatelessWidget {

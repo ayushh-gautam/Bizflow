@@ -1,208 +1,207 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-TextStyle get headingheading3xl => GoogleFonts.manrope(
+TextStyle get headingheading3xl => const TextStyle(
       fontSize: 36,
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
+      fontFamily: 'Switzer',
       fontWeight: FontWeight.w700,
       height: 48 / 36,
       letterSpacing: -0.55,
     );
 
-TextStyle get headingheading2xl => GoogleFonts.manrope(
+TextStyle get headingheading2xl => const TextStyle(
       fontSize: 32,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 44 / 32,
       letterSpacing: -0.31,
     );
 
-TextStyle get headingheadingxl => GoogleFonts.manrope(
+TextStyle get headingheadingxl => const TextStyle(
       fontSize: 24,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 32 / 24,
       letterSpacing: -0.21,
     );
 
-TextStyle get headingheadinglg => GoogleFonts.manrope(
+TextStyle get headingheadinglg => const TextStyle(
       fontSize: 20,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 28 / 20,
       letterSpacing: -0.21,
     );
 
-TextStyle get headingheadingmd => GoogleFonts.manrope(
+TextStyle get headingheadingmd => const TextStyle(
       fontSize: 18,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 28 / 18,
       letterSpacing: 0,
     );
 
-TextStyle get headingheadingsm => GoogleFonts.manrope(
+TextStyle get headingheadingsm => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodylgdefault => GoogleFonts.manrope(
+TextStyle get bodybodylgdefault => const TextStyle(
       fontSize: 18,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w400,
       height: 28 / 18,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodylgunderline => GoogleFonts.manrope(
+TextStyle get bodybodylgunderline => const TextStyle(
       fontSize: 18,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.underline,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 28 / 18,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodylgmedium => GoogleFonts.manrope(
+TextStyle get bodybodylgmedium => const TextStyle(
       fontSize: 18,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 28 / 18,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodylgsemibold => GoogleFonts.manrope(
+TextStyle get bodybodylgsemibold => const TextStyle(
       fontSize: 18,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 28 / 18,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodymddefault => GoogleFonts.manrope(
+TextStyle get bodybodymddefault => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w400,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodymdunderline => GoogleFonts.manrope(
+TextStyle get bodybodymdunderline => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.underline,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodymdmedium => GoogleFonts.manrope(
+TextStyle get bodybodymdmedium => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodymdmediumunderline => GoogleFonts.manrope(
+TextStyle get bodybodymdmediumunderline => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.underline,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodymdsemibold => GoogleFonts.manrope(
+TextStyle get bodybodymdsemibold => const TextStyle(
       fontSize: 16,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 24 / 16,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodysmdefault => GoogleFonts.manrope(
+TextStyle get bodybodysmdefault => const TextStyle(
       fontSize: 14,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w400,
       height: 20 / 14,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodysmunderline => GoogleFonts.manrope(
+TextStyle get bodybodysmunderline => const TextStyle(
       fontSize: 14,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.underline,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 20 / 14,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodysmmedium => GoogleFonts.manrope(
+TextStyle get bodybodysmmedium => const TextStyle(
       fontSize: 14,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 20 / 14,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodysmmediumunderline => GoogleFonts.manrope(
+TextStyle get bodybodysmmediumunderline => const TextStyle(
       fontSize: 14,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.underline,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 20 / 14,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodysmsemibold => GoogleFonts.manrope(
+TextStyle get bodybodysmsemibold => const TextStyle(
       fontSize: 14,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 20 / 14,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodyxsdefault => GoogleFonts.manrope(
+TextStyle get bodybodyxsdefault => const TextStyle(
       fontSize: 12,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w400,
       height: 16 / 12,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodyxsmedium => GoogleFonts.manrope(
+TextStyle get bodybodyxsmedium => const TextStyle(
       fontSize: 12,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w500,
       height: 16 / 12,
       letterSpacing: 0,
     );
 
-TextStyle get bodybodyxssemibold => GoogleFonts.manrope(
+TextStyle get bodybodyxssemibold => const TextStyle(
       fontSize: 12,
+      fontFamily: 'Switzer',
       decoration: TextDecoration.none,
-      fontStyle: FontStyle.normal,
       fontWeight: FontWeight.w700,
       height: 16 / 12,
       letterSpacing: 0,

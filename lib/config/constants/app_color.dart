@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppLightColor {
   static const primaryColor = Color(0xffffffff);
   /*Brand COLORS*/
-  static const brandPrimary = Color(0xff0a0a0a);
+  static const brandPrimary = Color(0xff0b72e5);
   static const brandSecondary = Color(0xffffffff);
 
   /*Background COLORS*/
@@ -12,7 +12,7 @@ class AppLightColor {
   static const bgTeritary = Color(0xffececee);
 
   /*Border COLORS*/
-  static const borderSoft = Color(0x4d0a0a0a);
+  static const borderSoft = Color(0xffbfbfbf);
   static const borderDefault = Color(0x4d545456);
   static const borderSolid = Color(0xffe5e7eb);
 
@@ -47,9 +47,9 @@ class AppDarkColor {
   static const bgTeritary = Color(0xff242424);
   static const bgSecondary = Color(0xff0a0a0a);
 
-  static const borderSoft = Color(0x26ffffff);
-  static const borderDefault = Color(0x99545456);
-  static const borderSolid = Color(0xffe5e7eb);
+  static const borderSoft = Color(0x26ffffff); //10 %
+  static const borderDefault = Color(0x99545456); //40%
+  static const borderSolid = Color(0xff3c3c3c);
 
   static const textDefault = Color(0xffffffff);
   static const textSecondary = Color(0xffababab);

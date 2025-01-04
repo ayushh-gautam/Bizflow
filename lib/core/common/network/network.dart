@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../error/result.dart';
+import '../../error/result.dart';
 
 abstract class ResponseModel {}
 
