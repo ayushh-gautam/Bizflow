@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProviderClass(
+      //deploy
       BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
           WidgetsBinding.instance.addPostFrameCallback((_) {    
