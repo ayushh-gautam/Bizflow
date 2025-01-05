@@ -2,7 +2,7 @@ import 'package:bizflow/features/settings/pages/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../config/routes/imports.dart';
+import '../../../config/routes/imports.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

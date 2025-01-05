@@ -25,23 +25,24 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     // Logo animation controller
     _logoController = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 15),
       vsync: this,
     )..addStatusListener((status) {
+        debugPrint('Logo animation status: $status');
         if (status == AnimationStatus.completed) {
           _textController.forward();
         }
       });
     // Text animation controller
     _textController = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 14),
       vsync: this,
     );
     // Logo animation
     _logoAnimation = Tween<double>(begin: -2.0, end: 0.0).animate(
       CurvedAnimation(
         parent: _logoController,
-        curve: Curves.bounceIn,
+        curve: Curves.ease,
       ),
     );
 
@@ -49,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen>
     _logoFinalPositionAnimation = Tween<double>(begin: 0.0, end: -0.6).animate(
       CurvedAnimation(
         parent: _textController,
-        curve: Curves.ease,
+        curve: Curves.easeOut,
       ),
     );
     // Text slide animation
@@ -111,7 +112,8 @@ class _SplashScreenState extends State<SplashScreen>
                   children: [
                     Text(
                       'Welcome to Bizflow\nManager',
-                      style: headingheading2xl,
+                      style: headingheading2xl.copyWith(
+                          color: AppDarkColor.baseWhite),
                       textAlign: TextAlign.center,
                     ),
                     Gap(16.h),
@@ -134,7 +136,7 @@ class _SplashScreenState extends State<SplashScreen>
                       },
                     ),
                     Gap(24.h),
-                     CustomButton(
+                    CustomButton(
                       buttonColor: AppDarkColor.borderDefault,
                       title: 'Explore Demo',
                       titleColor: AppDarkColor.brandPrimary,
@@ -150,7 +152,8 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                         Text(
                           ' Login Now',
-                          style: headingheadingsm.copyWith(),
+                          style: headingheadingsm.copyWith(
+                              color: AppDarkColor.baseWhite),
                         )
                       ],
                     )

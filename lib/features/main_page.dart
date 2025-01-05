@@ -1,6 +1,6 @@
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/features/clients/presentation/pages/client_page.dart';
-import 'package:bizflow/features/home/home_page.dart';
+import 'package:bizflow/features/invoice/home/home_page.dart';
 import 'package:bizflow/features/invoice/invoice_page.dart';
 import 'package:bizflow/features/project/project_page.dart';
 import 'package:bizflow/features/settings/pages/settings_page.dart';

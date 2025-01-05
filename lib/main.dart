@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProviderClass(
-      //deployy
+      //deployyment
       BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {    
+          WidgetsBinding.instance.addPostFrameCallback((_) {
             final isDarkMode = theme.brightness == Brightness.dark;
             SystemChrome.setSystemUIOverlayStyle(
               isDarkMode ? darkSystemUiOverlayStyle : lightSystemUiOverlayStyle,
