@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProviderClass(
-      //deployyment
+      //deployymenttt
       BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             SystemChrome.setSystemUIOverlayStyle(
               isDarkMode ? darkSystemUiOverlayStyle : lightSystemUiOverlayStyle,
             );
-          });
+          }); 
           return ScreenUtilInit(
             designSize: Size(
               MediaQuery.of(context).size.width,
