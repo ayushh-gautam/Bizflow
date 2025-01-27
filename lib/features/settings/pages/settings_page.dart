@@ -1,6 +1,7 @@
-import 'package:bizflow/features/authentication/login/presentation/pages/change_password.dart';
+import 'package:bizflow/features/authentication/presentation/pages/common/change_password.dart';
 import 'package:bizflow/features/settings/pages/edit_profile.dart';
 import 'package:bizflow/features/settings/pages/notification_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +12,8 @@ class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    print(user?.displayName);
     final customColors = Theme.of(context).extension<AppColors>()!;
     return Scaffold(
       backgroundColor: customColors.bgSecondary,
@@ -27,7 +30,7 @@ class SettingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Gap(16.h),
-            profileSection(customColors),
+            profileSection(customColors, user!),
             Gap(32.h),
             /*------------------------General----------------------------------*/
             CustomText(
@@ -71,7 +74,7 @@ class SettingPage extends StatelessWidget {
     );
   }
 
-  profileSection(AppColors customColors) {
+  profileSection(AppColors customColors, User user) {
     return Center(
       child: Column(
         children: [
@@ -83,12 +86,12 @@ class SettingPage extends StatelessWidget {
           ),
           Gap(16.h),
           CustomText(
-            text: 'User',
+            text: user.displayName ?? 'User',
             myStyle: headingheadinglg.copyWith(color: customColors.textDefault),
           ),
           Gap(4.h),
           CustomText(
-            text: 'testing@gmail.com',
+            text: user.email ?? 'user@gmail.com',
             myStyle:
                 bodybodysmdefault.copyWith(color: customColors.textSecondary),
           ),
@@ -97,7 +100,9 @@ class SettingPage extends StatelessWidget {
     );
   }
 
-  otherTiles(AppColors customColors) {
+  Widget otherTiles(AppColors customColors) {
+    // final List<Widget Function()> tileScreens = [];
+
     return Container(
         decoration: BoxDecoration(
             color: customColors.bgBackground,
@@ -113,10 +118,12 @@ class SettingPage extends StatelessWidget {
                 'Rate this App',
               ];
               return ListTile(
+
                 title: CustomText(
                   text: othersTitles[index],
                   myStyle: bodybodymddefault.copyWith(
                       color: customColors.textDefault),
+                      
                 ),
                 trailing: const Icon(CupertinoIcons.forward),
               );

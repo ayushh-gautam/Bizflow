@@ -20,4 +20,12 @@ class SvgAsset {
   static String notification = "$svgBasePath/notification.svg";
 
   static String emptyState = "$svgBasePath/empty_state.svg";
+
+  static String emptyInvoiceState = "$svgBasePath/empty_invoice.svg";
+
+  static String downArrowIcon = "$svgBasePath/down_arrow.svg"; 
+
+   static String eyeOpen = "$svgBasePath/eye_open.svg";
+
+    static String eyeClosed = "$svgBasePath/eye_closed.svg";
 }

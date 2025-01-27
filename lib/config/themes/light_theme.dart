@@ -24,6 +24,13 @@ ThemeData lightMode = ThemeData(
   ),
   brightness: Brightness.light,
   extensions: const [AppColors.light],
+  tabBarTheme: TabBarTheme(
+    labelColor: AppLightColor.brandPrimary,
+    unselectedLabelColor: AppLightColor.textSecondary,
+    indicator: UnderlineTabIndicator(
+        insets: EdgeInsets.symmetric(horizontal: 20),
+        borderSide: BorderSide(color: AppLightColor.brandPrimary, width: 3)),
+  ),
 );
 
 

@@ -1,15 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
 
+import 'package:bizflow/features/clients/presentation/cubit/client_state.dart';
+import 'package:bizflow/features/clients/presentation/pages/add_client_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'package:bizflow/config/core/common/custom_animated_expansion.dart';
 import 'package:bizflow/config/routes/imports.dart';
-import 'package:bizflow/core/common/custom_animated_expansion.dart';
 import 'package:bizflow/features/clients/data/model/client_model.dart';
+import 'package:bizflow/features/clients/presentation/cubit/client_cubit.dart';
 import 'package:bizflow/features/clients/widget/inactive_badge.dart';
 import 'package:bizflow/features/clients/widget/project_card.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class ClientDetail extends StatefulWidget {
-  const ClientDetail({super.key, required this.clientt});
+  const ClientDetail({
+    Key? key,
+    required this.clientt,
+  }) : super(key: key);
   final Client clientt;
 
   @override
@@ -28,144 +36,200 @@ class _ClientDetailState extends State<ClientDetail> {
   @override
   Widget build(BuildContext context) {
     final customColors = Theme.of(context).extension<AppColors>()!;
-    return Scaffold(
-      backgroundColor: customColors.bgSecondary,
-      appBar: AppBar(
-        title: CustomText(
-          text: 'Client Detail',
-          myStyle: headingheadingmd.copyWith(color: customColors.textDefault),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              showDialog(
-                  barrierColor: Colors.black.withOpacity(0.5),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Dialog(
-                      backgroundColor: Colors.transparent,
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: BackdropFilter(
-                              filter:
-                                  ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-                              child: Container(
-                                color: Colors.black.withOpacity(
-                                    0), // Background becomes blurred
+    return BlocListener<ClientCubit, ClientState>(
+        listener: (context, state) {
+          if (state is ClientDeleted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: CustomText(text: state.message)));
+
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddClientPage(),
+                ));
+          } else if (state is ClientError) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: CustomText(text: state.error)));
+          }
+        },
+        child: Scaffold(
+          backgroundColor: customColors.bgSecondary,
+          appBar: AppBar(
+            title: CustomText(
+              text: 'Client Detail',
+              myStyle:
+                  headingheadingmd.copyWith(color: customColors.textDefault),
+            ),
+            actions: [
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                      barrierColor: Colors.black.withOpacity(0.5),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Dialog(
+                          backgroundColor: Colors.transparent,
+                          child: Stack(
+                            children: [
+                              Positioned.fill(
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                      sigmaX: 3.0, sigmaY: 3.0),
+                                  child: Container(
+                                    color: Colors.black.withOpacity(
+                                        0), // Background becomes blurred
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            width: 361.h,
-                            height: 100.h,
-                            decoration: BoxDecoration(
-                              color: customColors.bgBackground,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Row(
+                              Container(
+                                width: 361.h,
+                                height: 100.h,
+                                decoration: BoxDecoration(
+                                  color: customColors.bgBackground,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    const Icon(Icons.edit),
-                                    Gap(12.h),
-                                    CustomText(
-                                      text: 'Edit Client Detail',
-                                      myStyle: bodybodymddefault.copyWith(
-                                          color: customColors.textDefault),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.edit),
+                                        Gap(12.h),
+                                        CustomText(
+                                          text: 'Edit Client Detail',
+                                          myStyle: bodybodymddefault.copyWith(
+                                              color: customColors.textDefault),
+                                        ),
+                                      ],
+                                    ),
+                                    Gap(16.h),
+                                    GestureDetector(
+                                      onTap: () {
+                                        deleteClientDialog(
+                                            context, customColors);
+                                      },
+                                      child: Row(
+                                        children: [
+                                          const Icon(Icons.delete),
+                                          Gap(12.h),
+                                          CustomText(
+                                            text: 'Delete Client ',
+                                            myStyle: bodybodymddefault.copyWith(
+                                                color:
+                                                    customColors.textDefault),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
-                                ),
-                                Gap(16.h),
-                                Row(
-                                  children: [
-                                    const Icon(Icons.delete),
-                                    Gap(12.h),
-                                    CustomText(
-                                      text: 'Delete Client ',
-                                      myStyle: bodybodymddefault.copyWith(
-                                          color: customColors.textDefault),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ).addMargin(EdgeInsets.symmetric(
-                                horizontal: 16.h, vertical: 16.h)),
+                                ).addMargin(EdgeInsets.symmetric(
+                                    horizontal: 16.h, vertical: 16.h)),
+                              ),
+                            ],
                           ),
+                        );
+                      });
+                },
+                child: Icon(
+                  Icons.more_vert,
+                  color: customColors.textDefault,
+                ).addMargin(EdgeInsets.only(right: 16.h)),
+              ),
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Gap(16.h),
+                userCard(customColors),
+                Gap(24.h),
+
+                /*----------------PROJECTS SECTION------------------------*/
+                CustomText(
+                  text: 'Projects',
+                  myStyle: bodybodymdsemibold.copyWith(
+                      color: customColors.textDefault),
+                ),
+                Gap(12.h),
+                SizedBox(
+                  height: 130.h,
+                  child: ListView.builder(
+                    itemCount: 4,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return const ProjectCard();
+                    },
+                  ),
+                ),
+                Gap(24.h),
+
+                /*---------------INVOICE SECTION--------------------------*/
+                CustomText(
+                  text: 'Invoices',
+                  myStyle: bodybodymdsemibold.copyWith(
+                    color: customColors.textDefault,
+                  ),
+                ),
+                Gap(12.h),
+                ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      clipBehavior: Clip.antiAlias,
+                      color: customColors.bgBackground,
+                      child: Column(
+                        children: [
+                          invoiceNameAndAmount(customColors, index).addMargin(
+                              EdgeInsets.symmetric(
+                                  horizontal: 16.h, vertical: 16.h)),
+                          expandedInvoiceDetails(customColors, index),
                         ],
                       ),
                     );
-                  });
-            },
-            child: Icon(
-              Icons.more_vert,
-              color: customColors.textDefault,
-            ).addMargin(EdgeInsets.only(right: 16.h)),
+                  },
+                )
+
+                ////////////////////////////////////////////////////////////////////
+              ],
+            ).addMargin(EdgeInsets.symmetric(
+              horizontal: 16.w,
+            )),
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Gap(16.h),
-            userCard(customColors),
-            Gap(24.h),
+        ));
+  }
 
-            /*----------------PROJECTS SECTION------------------------*/
-            CustomText(
-              text: 'Projects',
-              myStyle:
-                  bodybodymdsemibold.copyWith(color: customColors.textDefault),
-            ),
-            Gap(12.h),
-            SizedBox(
-              height: 130.h,
-              child: ListView.builder(
-                itemCount: 4,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return const ProjectCard();
+  Future<dynamic> deleteClientDialog(
+      BuildContext context, AppColors customColors) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: CustomText(text: 'Delete Client'),
+          content:
+              CustomText(text: 'Are you sure you want to delete this client?'),
+          actions: [
+            CustomButton.outline(
+                onTap: () {
+                  Navigator.pop(context);
                 },
-              ),
-            ),
-            Gap(24.h),
-
-            /*---------------INVOICE SECTION--------------------------*/
-            CustomText(
-              text: 'Invoices',
-              myStyle: bodybodymdsemibold.copyWith(
-                color: customColors.textDefault,
-              ),
-            ),
-            Gap(12.h),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return Card(
-                  clipBehavior: Clip.antiAlias,
-                  color: customColors.bgBackground,
-                  child: Column(
-                    children: [
-                      invoiceNameAndAmount(customColors, index).addMargin(
-                          EdgeInsets.symmetric(
-                              horizontal: 16.h, vertical: 16.h)),
-                      expandedInvoiceDetails(customColors, index),
-                    ],
-                  ),
-                );
-              },
-            )
-
-            ////////////////////////////////////////////////////////////////////
+                title: 'Cancel',
+                titleColor: customColors.brandSecondary!,
+                buttonColor: Colors.white),
+            CustomButton(
+                onTap: () async {
+                  Navigator.pop(context);
+                  final cubit = context.read<ClientCubit>();
+                  await cubit.deleteClients(widget.clientt.clientId);
+                },
+                title: 'Delete',
+                titleColor: customColors.baseWhite!,
+                buttonColor: customColors.fillError!)
           ],
-        ).addMargin(EdgeInsets.symmetric(
-          horizontal: 16.w,
-        )),
-      ),
+        );
+      },
     );
   }
 
@@ -240,30 +304,11 @@ class _ClientDetailState extends State<ClientDetail> {
                   bodybodymddefault.copyWith(color: customColors.textDefault),
             ),
             Gap(8.h),
-
             CustomText(
               text: ':  Developer',
               myStyle:
                   bodybodymddefault.copyWith(color: customColors.textDefault),
             )
-            // Wrap(
-            //   spacing: 8.h,
-            //   children: widget.clientt.tags.map((tag) {
-            //     return Chip(
-            //       backgroundColor: customColors.bgBackground,
-            //       shape: RoundedRectangleBorder(
-            //         side: BorderSide(color: customColors.borderDefault!),
-            //         borderRadius: BorderRadius.circular(32),
-            //       ),
-            //       padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 0),
-            //       label: Text(
-            //         'Developer',
-            //         style: bodybodysmdefault.copyWith(
-            //             color: customColors.textDefault),
-            //       ),
-            //     );
-            //   }).toList(),
-            // )
           ],
         ),
         const Spacer(),
@@ -341,7 +386,7 @@ class _ClientDetailState extends State<ClientDetail> {
         ),
         IconButton(
             onPressed: () => tapped(index),
-            icon: const Icon(CupertinoIcons.arrow_down))
+            icon: SvgPicture.asset(SvgAsset.downArrowIcon))
       ],
     );
   }

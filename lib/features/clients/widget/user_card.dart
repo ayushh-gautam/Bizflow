@@ -47,9 +47,7 @@ class UserCard extends StatelessWidget {
                   child: Image.network(
                       'https://i.pinimg.com/736x/6c/69/29/6c6929de52523d306903c1d331181c19.jpg'),
                 ),
-
                 Gap(12.w),
-
                 // User Name and Email
                 Expanded(
                   child: Column(
@@ -67,7 +65,6 @@ class UserCard extends StatelessWidget {
                     ],
                   ),
                 ),
-
                 // Three-dot menu icon
                 IconButton(
                   icon: Icon(
@@ -78,14 +75,11 @@ class UserCard extends StatelessWidget {
                 ),
               ],
             ),
-
             // Horizontal Line
-
             Divider(
               thickness: 1,
               color: customColors.borderSoft,
             ).addMargin(EdgeInsets.symmetric(vertical: 16.h)),
-
             // Bottom Row with Projects, Invoice, and Status
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,7 +117,6 @@ class UserCard extends StatelessWidget {
                             color: customColors.textDefault)),
                   ],
                 ),
-
                 // Status
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

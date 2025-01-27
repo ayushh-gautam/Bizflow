@@ -1,7 +1,7 @@
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/features/clients/presentation/pages/client_page.dart';
-import 'package:bizflow/features/invoice/home/home_page.dart';
-import 'package:bizflow/features/invoice/invoice_page.dart';
+import 'package:bizflow/features/home/home_page.dart';
+import 'package:bizflow/features/invoice/presentation/pages/invoice_page.dart';
 import 'package:bizflow/features/project/project_page.dart';
 import 'package:bizflow/features/settings/pages/settings_page.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
       return SvgPicture.asset(
         assetName,
         color:
-            isSelected ? customColors.textDefault : customColors.textSecondary,
+            isSelected ? customColors.brandPrimary : customColors.textSecondary,
       );
     }
 
@@ -47,6 +47,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: customColors.bgBackground,
         selectedItemColor: customColors.brandPrimary,
+        selectedLabelStyle: bodybodysmmedium,
         currentIndex: indexx,
         onTap: (index) {
           setState(() {

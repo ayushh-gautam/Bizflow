@@ -1,5 +1,5 @@
 import 'package:bizflow/config/themes/cubit/theme_cubit.dart';
-import 'package:bizflow/features/splash/presentation/pages/splash_screen.dart';
+import 'package:bizflow/features/splash/splash_screen.dart';
 import 'package:bizflow/firebase_options.dart';
 import 'package:bizflow/multibloc_provider.dart';
 import 'package:firebase_core/firebase_core.dart';

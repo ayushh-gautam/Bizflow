@@ -1,3 +1,4 @@
+import 'package:bizflow/features/clients/presentation/cubit/client_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,6 +18,12 @@ class ClientPage extends StatefulWidget {
 }
 
 class _ClientPageState extends State<ClientPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ClientCubit>().fetchClients();
+  }
+
   int? selectedStatus;
   final Set<String> selectedTags = {};
 
@@ -25,133 +32,128 @@ class _ClientPageState extends State<ClientPage> {
     final customColors = Theme.of(context).extension<AppColors>()!;
 
     return Scaffold(
-      backgroundColor: customColors.bgSecondary,
-      appBar: AppBar(
-        title: CustomText(
-          text: 'Clients',
-          myStyle: headingheadinglg.copyWith(color: customColors.textDefault),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: BlocBuilder<ClientCubit, List<Client>>(
-        builder: (context, clients) {
-          return clients.isEmpty
-              ? const SizedBox()
-              : Material(
-                  elevation: 5,
-                  child: CustomButton(
-                    title: 'Add Client',
-                    width: 170.h,
-                    titleColor: customColors.brandSecondary!,
-                    buttonColor: customColors.brandPrimary!,
-                    leading: Icon(
-                      Icons.add,
-                      color: customColors.brandSecondary!,
-                    ),
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const AddClientPage();
-                      }));
-                    },
-                  ),
-                );
-        },
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: <Widget>[
-              Gap(16.h),
-              BlocBuilder<ClientCubit, List<Client>>(
-                builder: (context, clients) {
-                  if (clients.isEmpty) {
-                    return _buildEmptyState(customColors);
-                  } else {
-                    return _buildClientList(customColors, clients);
-                  }
-                },
-              ),
-            ],
+        backgroundColor: customColors.bgSecondary,
+        appBar: AppBar(
+          title: CustomText(
+            text: 'Clients',
+            myStyle: headingheadinglg.copyWith(color: customColors.textDefault),
           ),
         ),
-      ),
-    );
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: BlocBuilder<ClientCubit, ClientState>(
+          builder: (context, state) {
+            if (state is ClientAdded) {
+              if (state.clients.isEmpty) {
+                return SizedBox();
+              } else {
+                return Material(
+                    elevation: 5,
+                    child: CustomButton(
+                      title: 'Add Client',
+                      width: 170.h,
+                      titleColor: customColors.brandSecondary!,
+                      buttonColor: customColors.brandPrimary!,
+                      leading: Icon(
+                        Icons.add,
+                        color: customColors.brandSecondary!,
+                      ),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const AddClientPage();
+                        }));
+                      },
+                    ));
+              }
+            }
+            return SizedBox();
+          },
+        ),
+        body: BlocBuilder<ClientCubit, ClientState>(
+          builder: (context, state) {
+            if (state is ClientAdded) {
+              if (state.clients.isEmpty) {
+                return _buildEmptyState(customColors);
+              } else {
+                return _buildClientList(customColors, state.clients);
+              }
+            }
+            return SizedBox();
+          },
+        ));
   }
 
   Widget _buildEmptyState(AppColors customColors) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Gap(40.h),
-        SvgPicture.asset(SvgAsset.emptyState),
-        Gap(28.h),
-        CustomText(
-          text: 'Let\'s Add your first Client',
-          myStyle: headingheadingmd.copyWith(color: customColors.textDefault),
-        ),
-        Gap(6.h),
-        CustomText(
-          textAlign: TextAlign.center,
-          text: 'Add a new client to get started managing your projects.',
-          myStyle:
-              bodybodymddefault.copyWith(color: customColors.textSecondary),
-        ),
-        Gap(8.h),
-        CustomButton(
-          height: 52.h,
-          width: 120.h,
-          style: bodybodymdmedium.copyWith(color: customColors.brandSecondary),
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return const AddClientPage();
-              },
-            ));
-          },
-          leading: Icon(
-            Icons.add,
-            color: customColors.brandSecondary,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Gap(40.h),
+          SvgPicture.asset(SvgAsset.emptyState),
+          Gap(28.h),
+          CustomText(
+            text: 'Let\'s Add your first Client',
+            myStyle: headingheadingmd.copyWith(color: customColors.textDefault),
           ),
-          title: 'Add Client',
-          titleColor: customColors.brandSecondary!,
-          buttonColor: customColors.brandPrimary!,
-        ),
-      ],
+          Gap(6.h),
+          CustomText(
+            textAlign: TextAlign.center,
+            text: 'Add a new client to get started managing your projects.',
+            myStyle:
+                bodybodymddefault.copyWith(color: customColors.textSecondary),
+          ),
+          Gap(8.h),
+          CustomButton(
+            height: 52.h,
+            width: 120.h,
+            style:
+                bodybodymdmedium.copyWith(color: customColors.brandSecondary),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const AddClientPage();
+                },
+              ));
+            },
+            leading: Icon(
+              Icons.add,
+              color: customColors.brandSecondary,
+            ),
+            title: 'Add Client',
+            titleColor: customColors.brandSecondary!,
+            buttonColor: customColors.brandPrimary!,
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildClientList(AppColors customColors, List<Client> clients) {
     return Column(
       children: [
-        Row(
-          children: [
-            SizedBox(
-              width: 301.h,
-              child: KTextField(
-                controller: TextEditingController(),
-                leading: const Icon(Icons.search),
-              ),
+        Row(children: [
+          Expanded(
+            child: KTextField(
+              controller: TextEditingController(),
+              leading: const Icon(Icons.search),
+            ).addMargin(EdgeInsets.only(right: 10.w)),
+          ),
+          Container(
+            alignment: Alignment.center,
+            height: 48.h,
+            width: 48.h,
+            decoration: BoxDecoration(
+              color: customColors.bgBackground,
+              borderRadius: BorderRadius.circular(12.r),
             ),
-            Gap(10.h),
-            Container(
-              alignment: Alignment.center,
-              height: 48.h,
-              width: 48.h,
-              decoration: BoxDecoration(
-                color: customColors.bgBackground,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  _showFilterModal(customColors);
-                },
-                icon: const Icon(Icons.filter, size: 20),
-              ),
+            child: IconButton(
+              onPressed: () {
+                _showFilterModal(customColors);
+              },
+              icon: const Icon(Icons.filter, size: 20),
             ),
-          ],
-        ),
+          ),
+        ]),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
@@ -161,7 +163,7 @@ class _ClientPageState extends State<ClientPage> {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ClientDetail(clientt: client);
+                  return ClientDetail(clientt: client, );
                 }));
               },
               child: UserCard(
@@ -176,7 +178,7 @@ class _ClientPageState extends State<ClientPage> {
           },
         ),
       ],
-    );
+    ).addMargin(EdgeInsets.symmetric(horizontal: 16.h, vertical: 16.w));
   }
 
   void _showFilterModal(AppColors customColors) {
