@@ -15,9 +15,9 @@ import 'package:bizflow/features/clients/widget/project_card.dart';
 
 class ClientDetail extends StatefulWidget {
   const ClientDetail({
-    Key? key,
+    super.key,
     required this.clientt,
-  }) : super(key: key);
+  });
   final Client clientt;
 
   @override
@@ -25,7 +25,7 @@ class ClientDetail extends StatefulWidget {
 }
 
 class _ClientDetailState extends State<ClientDetail> {
-  List<bool> _isTappedList = [false, false, false, false];
+  final List<bool> _isTappedList = [false, false, false, false];
 
   void tapped(int index) {
     _isTappedList[index] = !_isTappedList[index];
@@ -64,7 +64,7 @@ class _ClientDetailState extends State<ClientDetail> {
               GestureDetector(
                 onTap: () {
                   showDialog(
-                      barrierColor: Colors.black.withOpacity(0.5),
+                      barrierColor: Colors.black.withValues(alpha: 0.5),
                       context: context,
                       builder: (BuildContext context) {
                         return Dialog(
@@ -76,7 +76,7 @@ class _ClientDetailState extends State<ClientDetail> {
                                   filter: ImageFilter.blur(
                                       sigmaX: 3.0, sigmaY: 3.0),
                                   child: Container(
-                                    color: Colors.black.withOpacity(
+                                    color: Colors.black.withValues(alpha: 
                                         0), // Background becomes blurred
                                   ),
                                 ),

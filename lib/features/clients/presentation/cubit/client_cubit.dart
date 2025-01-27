@@ -48,7 +48,7 @@ class ClientCubit extends Cubit<ClientState> {
   }
 
   Future<void> deleteClients(String clientId) async {
-    print('Deleting client:$clientId');
+  //  print('Deleting client:$clientId');
     emit(ClientLoading());
     try {
       final user = _auth.currentUser;

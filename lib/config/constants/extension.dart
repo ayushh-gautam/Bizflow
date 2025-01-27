@@ -24,7 +24,7 @@ extension ExtendedWidget on Widget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               spreadRadius: 0,
               blurRadius: 6,
               offset: const Offset(0, 3), // changes position of shadow
@@ -38,7 +38,7 @@ extension ExtendedWidget on Widget {
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.1),
+          color: Colors.black.withValues(alpha: 0.1),
           spreadRadius: 0,
           blurRadius: 6,
           offset: offset ?? const Offset(0, 3), // changes position of shadow

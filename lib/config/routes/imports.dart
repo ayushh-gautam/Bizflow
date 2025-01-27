@@ -1,4 +1,3 @@
-library ui_library;
 export 'package:bizflow/config/core/common/custom_button.dart';
 export 'package:bizflow/config/core/common/text.dart';
 export 'package:bizflow/config/core/common/textfield.dart';

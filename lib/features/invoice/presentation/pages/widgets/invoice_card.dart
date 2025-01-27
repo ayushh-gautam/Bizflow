@@ -10,15 +10,15 @@ class InvoiceCard extends StatelessWidget {
   final String invoiceId;
   final DateTime? issuedDate;
   final DateTime? dueDate;
-  InvoiceCard({
-    Key? key,
+  const InvoiceCard({
+    super.key,
     required this.invoiceName,
     required this.amount,
     required this.projectName,
     required this.invoiceId,
     required this.issuedDate,
     required this.dueDate,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

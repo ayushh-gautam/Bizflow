@@ -11,7 +11,7 @@ class TextFieldSection extends StatelessWidget {
   final FocusNode? focusnode;
   final String? Function(String?)? validator;
   final TextEditingController controller;
-  TextFieldSection({
+  const TextFieldSection({
     super.key,
     this.focusnode,
     this.trailing,

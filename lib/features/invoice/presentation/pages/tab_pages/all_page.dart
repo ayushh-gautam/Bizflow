@@ -1,7 +1,6 @@
 import 'package:bizflow/features/invoice/data/model/invoice_model.dart';
 import 'package:bizflow/features/invoice/presentation/cubit/invoice_cubit.dart';
 import 'package:bizflow/features/invoice/presentation/pages/add_invoice_page.dart';
-import 'package:bizflow/features/invoice/presentation/pages/invoice_page.dart';
 import 'package:bizflow/features/invoice/presentation/pages/widgets/invoice_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -89,7 +88,7 @@ Widget _buildInvoiceLIst(
             ),
             child: IconButton(
               onPressed: () {
-                return null;
+                return;
               },
               icon: const Icon(Icons.add_circle_outline_outlined, size: 20),
             ),

@@ -23,6 +23,7 @@ class _EditProfileState extends State<EditProfile> {
 
       setState(() => this.image = tempImage);
     } on PlatformException catch (e) {
+      
       print('failedto pick image $e');
     }
   }

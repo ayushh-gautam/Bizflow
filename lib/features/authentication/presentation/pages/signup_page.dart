@@ -1,7 +1,6 @@
 import 'package:bizflow/config/core/common/custom_textfield_section.dart';
 import 'package:bizflow/features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bizflow/features/authentication/presentation/pages/login_page.dart';
-import 'package:bizflow/features/authentication/presentation/pages/common/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +19,7 @@ class _CreateAccountState extends State<CreateAccount> {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -49,7 +48,7 @@ class _CreateAccountState extends State<CreateAccount> {
         },
         builder: (context, state) {
           return Form(
-            key: _formKey,
+            key: formKey,
             child: Column(
               children: [
                 Expanded(
@@ -114,7 +113,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         CustomButton(
                           onTap: state is! AuthLoading
                               ? () {
-                                  if (_formKey.currentState?.validate() ??
+                                  if (formKey.currentState?.validate() ??
                                       true) {
                                     context
                                         .read<AuthCubit>()

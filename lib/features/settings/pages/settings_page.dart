@@ -13,7 +13,7 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-    print(user?.displayName);
+
     final customColors = Theme.of(context).extension<AppColors>()!;
     return Scaffold(
       backgroundColor: customColors.bgSecondary,
@@ -118,12 +118,10 @@ class SettingPage extends StatelessWidget {
                 'Rate this App',
               ];
               return ListTile(
-
                 title: CustomText(
                   text: othersTitles[index],
                   myStyle: bodybodymddefault.copyWith(
                       color: customColors.textDefault),
-                      
                 ),
                 trailing: const Icon(CupertinoIcons.forward),
               );
@@ -162,7 +160,7 @@ class SettingPage extends StatelessWidget {
                     ? BlocBuilder<ThemeCubit, ThemeData>(
                         builder: (context, theme) {
                         return CupertinoSwitch(
-                          activeColor: customColors.textTeritary,
+                          activeTrackColor: customColors.textTeritary,
                           value: theme.brightness == Brightness.dark,
                           onChanged: (bool value) {
                             context.read<ThemeCubit>().toggleTheme();

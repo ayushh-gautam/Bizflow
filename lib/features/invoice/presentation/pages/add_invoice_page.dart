@@ -78,8 +78,6 @@ class _AddInvoicePageState extends State<AddInvoicePage> {
                       buttonColor: customColors.bgBackground!),
                   Gap(24.h),
 
-                  //TODO:Billing Items
-
                   // CustomAnimatedExpansion(
                   //     secondChild: Card(
                   //       child: Column(
