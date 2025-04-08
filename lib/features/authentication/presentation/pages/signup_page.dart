@@ -1,6 +1,7 @@
 import 'package:bizflow/config/core/common/custom_textfield_section.dart';
 import 'package:bizflow/features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bizflow/features/authentication/presentation/pages/login_page.dart';
+import 'package:bizflow/features/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,6 +41,12 @@ class _CreateAccountState extends State<CreateAccount> {
               context,
               MaterialPageRoute(builder: (context) => const LoginPage()),
             );
+          } else if (state is AuthLoggedIn) {
+            Navigator.pushReplacement(context, MaterialPageRoute(
+              builder: (context) {
+                return MainPage();
+              },
+            ));
           } else if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
@@ -139,6 +146,9 @@ class _CreateAccountState extends State<CreateAccount> {
                           title: 'Continue with Google',
                           titleColor: customColors.brandPrimary!,
                           buttonColor: customColors.bgTeritary!,
+                          onTap: () {
+                            context.read<AuthCubit>().loginWithGoogle();
+                          },
                         ),
                       ],
                     ).addMargin(EdgeInsets.symmetric(horizontal: 16.h)),

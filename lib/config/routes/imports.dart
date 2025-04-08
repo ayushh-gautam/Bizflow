@@ -7,4 +7,4 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:bizflow/config/constants/asset_manager.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:gap/gap.dart';
-export '../../../../../config/themes/themeExtension/theme_extension.dart';
+export '../core/themes/themeExtension/theme_extension.dart';

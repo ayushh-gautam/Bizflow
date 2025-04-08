@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:flutter/services.dart';
@@ -23,13 +24,13 @@ class _EditProfileState extends State<EditProfile> {
 
       setState(() => this.image = tempImage);
     } on PlatformException catch (e) {
-      
       print('failedto pick image $e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     final customColors = Theme.of(context).extension<AppColors>()!;
 
     return Scaffold(
@@ -51,7 +52,84 @@ class _EditProfileState extends State<EditProfile> {
                   Gap(16.h),
 
                   //--------------------- profile picturee--------------------//
-                  profileEdit(context, customColors),
+
+                  Center(
+                      child: SizedBox(
+                    height: 100.h,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        ClipOval(
+                          child: image != null
+                              ? Image.file(
+                                  image!,
+                                  height: 100.h,
+                                  width: 100.w,
+                                  fit: BoxFit.cover,
+                                )
+                              : user?.photoURL != null &&
+                                      user!.photoURL!.isNotEmpty
+                                  ? Image.network(
+                                      user.photoURL!,
+                                      height: 100.h,
+                                      width: 100.w,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        // Fallback to Pinterest image if Google photo fails to load
+                                        return Image.network(
+                                          'https://i.pinimg.com/564x/ae/4e/29/ae4e29ce8a84f7b95d5f27faed37fc9c.jpg',
+                                          height: 100.h,
+                                          width: 100.w,
+                                          fit: BoxFit.cover,
+                                        );
+                                      },
+                                    )
+                                  : Image.network(
+                                      'https://i.pinimg.com/564x/ae/4e/29/ae4e29ce8a84f7b95d5f27faed37fc9c.jpg',
+                                      height: 100.h,
+                                      width: 100.w,
+                                      fit: BoxFit.cover,
+                                    ),
+                        ),
+                        Positioned(
+                          top: 70,
+                          right: 0,
+                          left: 12,
+                          child: GestureDetector(
+                            onTap: () => _showEditDialog(
+                              context,
+                              customColors,
+                            ),
+                            child: Container(
+                                height: 32.h,
+                                width: 71.h,
+                                decoration: BoxDecoration(
+                                    color: customColors.bgBackground!,
+                                    borderRadius: BorderRadius.circular(58.r)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                      SvgAsset.pen,
+                                      // ignore: deprecated_member_use
+                                      color: customColors.textDefault,
+                                    ),
+                                    Gap(8.h),
+                                    CustomText(
+                                      text: 'Edit',
+                                      myStyle: bodybodyxsmedium.copyWith(
+                                          color: customColors.textDefault),
+                                    )
+                                  ],
+                                )),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+
+                  // profileEdit(context, customColors,user),
                   Gap(32.h),
 
                   //--------------------input field section-----------------//
@@ -103,65 +181,6 @@ class _EditProfileState extends State<EditProfile> {
         ],
       ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
     );
-  }
-
-  Center profileEdit(context, AppColors customColors) {
-    return Center(
-        child: SizedBox(
-      height: 100.h,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          ClipOval(
-              child: image == null
-                  ? Image.network(
-                      'https://i.pinimg.com/564x/ae/4e/29/ae4e29ce8a84f7b95d5f27faed37fc9c.jpg',
-                      height: 100.h,
-                      width: 100.w,
-                      fit: BoxFit.cover,
-                    )
-                  : Image.file(
-                      image!,
-                      height: 100.h,
-                      width: 100.w,
-                      fit: BoxFit.cover,
-                    )),
-          Positioned(
-            top: 70,
-            right: 0,
-            left: 12,
-            child: GestureDetector(
-              onTap: () => _showEditDialog(
-                context,
-                customColors,
-              ),
-              child: Container(
-                  height: 32.h,
-                  width: 71.h,
-                  decoration: BoxDecoration(
-                      color: customColors.bgBackground!,
-                      borderRadius: BorderRadius.circular(58.r)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        SvgAsset.pen,
-                        // ignore: deprecated_member_use
-                        color: customColors.textDefault,
-                      ),
-                      Gap(8.h),
-                      CustomText(
-                        text: 'Edit',
-                        myStyle: bodybodyxsmedium.copyWith(
-                            color: customColors.textDefault),
-                      )
-                    ],
-                  )),
-            ),
-          ),
-        ],
-      ),
-    ));
   }
 
   void _showEditDialog(BuildContext context, AppColors customColors) {

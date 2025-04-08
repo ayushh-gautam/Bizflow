@@ -1,4 +1,3 @@
-import 'package:bizflow/features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bizflow/features/settings/pages/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const NofificationPage();
+                  return NotificationPage();
                 }));
               },
               child: SvgPicture.asset(
@@ -40,15 +39,6 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: Center(
-          child: CustomButton(
-            title: 'Logout',
-            titleColor: Colors.white,
-            buttonColor: Colors.red,
-            onTap: () {
-              context.read<AuthCubit>().logout(context);
-            },
-          ),
-        ));
+        body: Center());
   }
 }

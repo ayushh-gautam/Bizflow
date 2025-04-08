@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../themes/themeExtension/theme_extension.dart';
+import '../themes/themeExtension/theme_extension.dart';
 
 class CustomButton extends StatelessWidget {
   final String title;

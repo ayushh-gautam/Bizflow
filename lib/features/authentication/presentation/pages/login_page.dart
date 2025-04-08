@@ -28,7 +28,9 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: customColors.bgBackground,
-        appBar: AppBar(),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+        ),
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is AuthLoggedIn) {
@@ -93,44 +95,47 @@ class _LoginPageState extends State<LoginPage> {
                               placeholder: 'Enter your password'),
                           Gap(24.h),
 
-                          Row(
-                            children: [
-                              Checkbox(
-                                  visualDensity: VisualDensity.compact,
-                                  fillColor: WidgetStatePropertyAll(
-                                      customColors.borderSoft),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4)),
-                                  checkColor: customColors.textDefault,
-                                  side: BorderSide.none,
-                                  value: ischecked,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      ischecked = value!;
-                                    });
-                                  }),
-                              Gap(8.w),
-                              CustomText(
-                                text: 'Remember Me',
-                                myStyle: bodybodysmmedium.copyWith(
-                                    color: customColors.textDefault),
-                              ),
-                              Gap(111.w),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) =>
-                                              const ForgetPassword()));
-                                },
-                                child: CustomText(
-                                    text: 'Forgot Password?',
-                                    myStyle: bodybodysmmedium.copyWith(
-                                      color: customColors.fillError,
-                                    )),
-                              )
-                            ],
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                    visualDensity: VisualDensity.compact,
+                                    fillColor: WidgetStatePropertyAll(
+                                        customColors.borderSoft),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(4)),
+                                    checkColor: customColors.textDefault,
+                                    side: BorderSide.none,
+                                    value: ischecked,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        ischecked = value!;
+                                      });
+                                    }),
+                                Gap(8.w),
+                                CustomText(
+                                  text: 'Remember Me',
+                                  myStyle: bodybodysmmedium.copyWith(
+                                      color: customColors.textDefault),
+                                ),
+                                Gap(111.h),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const ForgetPassword()));
+                                  },
+                                  child: CustomText(
+                                      text: 'Forgot Password?',
+                                      myStyle: bodybodysmmedium.copyWith(
+                                        color: customColors.fillError,
+                                      )),
+                                )
+                              ],
+                            ),
                           ),
                           Gap(32.h),
                           CustomButton(
@@ -149,13 +154,17 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Gap(24.h),
                           CustomButton(
-                              leading: SvgPicture.asset(
-                                SvgAsset.google,
-                                height: 24.h,
-                              ),
-                              title: 'Continue with Google',
-                              titleColor: customColors.brandPrimary!,
-                              buttonColor: customColors.bgTeritary!),
+                            leading: SvgPicture.asset(
+                              SvgAsset.google,
+                              height: 24.h,
+                            ),
+                            title: 'Continue with Google',
+                            titleColor: customColors.brandPrimary!,
+                            buttonColor: customColors.bgTeritary!,
+                            onTap: () {
+                              context.read<AuthCubit>().loginWithGoogle();
+                            },
+                          ),
                         ],
                       ).addMargin(EdgeInsets.symmetric(horizontal: 16.w)),
                     ),

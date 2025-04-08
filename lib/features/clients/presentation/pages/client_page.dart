@@ -1,13 +1,11 @@
 import 'package:bizflow/features/clients/presentation/cubit/client_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:bizflow/config/routes/imports.dart';
 import 'package:bizflow/features/clients/data/model/client_model.dart';
 import 'package:bizflow/features/clients/presentation/cubit/client_cubit.dart';
 import 'package:bizflow/features/clients/presentation/pages/add_client_page.dart';
 import 'package:bizflow/features/clients/presentation/pages/client_detail_page.dart';
-
 import '../../widget/user_card.dart';
 
 class ClientPage extends StatefulWidget {
@@ -47,7 +45,7 @@ class _ClientPageState extends State<ClientPage> {
                 return SizedBox();
               } else {
                 return Material(
-                    elevation: 5,
+                    elevation: 0,
                     child: CustomButton(
                       title: 'Add Client',
                       width: 170.h,
@@ -163,7 +161,9 @@ class _ClientPageState extends State<ClientPage> {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ClientDetail(clientt: client, );
+                  return ClientDetail(
+                    clientt: client,
+                  );
                 }));
               },
               child: UserCard(

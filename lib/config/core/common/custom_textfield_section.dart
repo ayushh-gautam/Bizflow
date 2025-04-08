@@ -3,7 +3,7 @@ import '../../routes/imports.dart';
 
 
 class TextFieldSection extends StatelessWidget {
-  final String title;
+  final String? title;
   final String placeholder;
   final Widget? trailing;
   final bool password;
@@ -17,7 +17,7 @@ class TextFieldSection extends StatelessWidget {
     this.trailing,
     this.password = false,
     required this.customColors,
-    required this.title,
+     this.title,
     required this.controller,
     required this.placeholder,
     this.validator, this.trailingTapped,
@@ -31,7 +31,7 @@ class TextFieldSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: title,
+          text: title ?? '',
           myStyle: bodybodymdmedium.copyWith(color: customColors.textDefault),
         ),
         Gap(4.h),

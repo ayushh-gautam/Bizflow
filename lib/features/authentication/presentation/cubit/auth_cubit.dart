@@ -32,7 +32,21 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void loginWithGoogle() {}
+  
+
+void loginWithGoogle() async {
+    emit(AuthLoading());
+    try {
+      final user = await _authRepository.loginWithGoogle();
+      if (user != null) {
+        emit(AuthLoggedIn(user: user));
+      } else {
+        emit(AuthError(message: "Google Sign-In failed: No user returned"));
+      }
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+    }
+  }
 
   void logout(context) async {
     emit(AuthLoading());
@@ -53,6 +67,25 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthLoggedIn(user: user));
     } else {
       emit(AuthLoggedOut());
+    }
+  }
+
+  void sendPasswordResetEmail(String email) async {
+    if (email.isEmpty) {
+      emit(AuthError(message: "Email cannot be empty"));
+      return;
+    }
+
+    emit(AuthLoading());
+
+    try {
+      await _authRepository.sendPasswordResetEmail(email);
+      emit(PasswordResetEmailSent(
+          message: 'Password reset email sent! Check your inbox.')
+          
+          );
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
     }
   }
 }

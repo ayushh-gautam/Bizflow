@@ -1,3 +1,4 @@
+import 'package:bizflow/features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:bizflow/features/authentication/presentation/pages/common/change_password.dart';
 import 'package:bizflow/features/settings/pages/edit_profile.dart';
 import 'package:bizflow/features/settings/pages/notification_screen.dart';
@@ -5,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../config/themes/cubit/theme_cubit.dart';
+import '../../../config/core/themes/cubit/theme_cubit.dart';
 import 'package:bizflow/config/routes/imports.dart';
 
 class SettingPage extends StatelessWidget {
@@ -55,7 +56,7 @@ class SettingPage extends StatelessWidget {
             CustomButton(
                 alignment: Alignment.centerLeft,
                 onTap: () {
-                  SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                  context.read<AuthCubit>().logout(context);
                 },
                 title: 'Logout',
                 leading: Padding(
@@ -80,7 +81,8 @@ class SettingPage extends StatelessWidget {
         children: [
           ClipOval(
             child: Image.network(
-              'https://i.pinimg.com/564x/ae/4e/29/ae4e29ce8a84f7b95d5f27faed37fc9c.jpg',
+              user.photoURL ??
+                  'https://i.pinimg.com/564x/ae/4e/29/ae4e29ce8a84f7b95d5f27faed37fc9c.jpg',
               height: 100.h,
             ),
           ),
@@ -134,7 +136,7 @@ class SettingPage extends StatelessWidget {
     final List<Widget Function()> screens = [
       () => const EditProfile(),
       () => const ChangePassword(),
-      () => const NofificationPage(),
+      () => const NotificationPage(),
     ];
     final generalTitles = [
       'Edit Profile',

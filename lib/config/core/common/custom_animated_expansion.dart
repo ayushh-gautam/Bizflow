@@ -1,4 +1,4 @@
-import 'package:bizflow/config/themes/themeExtension/theme_extension.dart';
+import 'package:bizflow/config/core/themes/themeExtension/theme_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomAnimatedExpansion extends StatelessWidget {

@@ -8,3 +8,21 @@ sealed class InvoiceState extends Equatable {
 }
 
 final class InvoiceInitial extends InvoiceState {}
+
+final class InvoiceLoading extends InvoiceState {}
+
+final class InvoiceLoaded extends InvoiceState {
+  final List<Invoice> invoices;
+  const InvoiceLoaded({required this.invoices});
+
+  @override
+  List<Object> get props => [invoices];
+}
+
+final class InvoiceError extends InvoiceState {
+  final String error;
+  const InvoiceError(this.error);
+
+  @override
+  List<Object> get props => [error];
+}

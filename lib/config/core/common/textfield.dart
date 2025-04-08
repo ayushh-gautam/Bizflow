@@ -9,6 +9,7 @@ class KTextField extends StatefulWidget {
   final Widget? trailing;
   final bool password;
   final bool showError;
+final void Function(String)? onChanged;
   FocusNode? focusnode;
   final FormFieldValidator<String>? validator;
   final void Function()? trailingTapped;
@@ -16,6 +17,8 @@ class KTextField extends StatefulWidget {
   KTextField({
     super.key,
     this.focusnode,
+    this.onChanged,
+    
     required this.controller,
     this.placeholder = '',
     this.leading,
@@ -58,6 +61,7 @@ class _KTextFieldState extends State<KTextField> {
       /// We can also avoid this by changing the [primarySwatch] in MaterialApp
       data: ThemeData(primaryColor: customColors.borderSoft),
       child: TextFormField(
+        onChanged: widget.onChanged,
         focusNode: widget.focusnode,
         controller: widget.controller,
         validator: widget.validator,

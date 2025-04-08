@@ -29,3 +29,11 @@ class AuthVerificationSent extends AuthState {
   final User? user;
  const  AuthVerificationSent({required this.user});
 }
+
+final class PasswordResetEmailSent extends AuthState {
+  final String message;
+  const PasswordResetEmailSent({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
